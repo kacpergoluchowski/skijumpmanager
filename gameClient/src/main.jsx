@@ -1,9 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import StartPage from './pages/StartPage.jsx'
-import Test from './pages/Test.jsx'
+import CountrySelectionPage from './pages/CountrySelectionPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -11,8 +10,8 @@ const router = createBrowserRouter([
     element: <StartPage />
   },
   {
-    path: '/test',
-    element: <Test />
+    path: '/select-country',
+    element: <CountrySelectionPage />
   }
 ])
 
