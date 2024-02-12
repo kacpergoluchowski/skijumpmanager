@@ -2,8 +2,8 @@ import React from "react";
 import '../app.scss';
 import setLocalStorage from "../assets/utilities/setLocalStorage";
 
-export default function CountryCard({ name, flag, rating, setSelected }) {
-    const countryInfo = [name, flag, rating];
+export default function CountryCard({ name, flag, rating, levelOfPlayers, levelOfJuniors, finacialCondition, status, setSelected }) {
+    const countryInfo = [name, flag, rating, levelOfPlayers, levelOfJuniors, finacialCondition, status];
 
     const cardHandle = () => {
         setLocalStorage(countryInfo);

@@ -4,109 +4,109 @@
         "id": 0,
         "name": "Austria",
         "stars": 5,
-        "levelOfPlayers": " - ",
-        "levelOfJuniors": " - ",
-        "finacialCondition": " - ",
-        "status": " - "
+        "levelOfPlayers": "doskonały",
+        "levelOfJuniors": "doskonały",
+        "finacialCondition": "doskonała",
+        "status": "gigant"
       },
       {
         "id": 1,
         "name": "Niemcy",
         "stars": 5,
-        "levelOfPlayers": " - ",
-        "levelOfJuniors": " - ",
-        "finacialCondition": " - ",
-        "status": " - "
+        "levelOfPlayers": "doskonały",
+        "levelOfJuniors": "b. dobry",
+        "finacialCondition": "doskonała",
+        "status": "gigant"
       },
       {
         "id": 2,
         "name": "Słowenia",
         "stars": 5,
-        "levelOfPlayers": " - ",
-        "levelOfJuniors": " - ",
-        "finacialCondition": " - ",
-        "status": " - "
+        "levelOfPlayers": "b.dobry",
+        "levelOfJuniors": "dobry",
+        "finacialCondition": "b. dobra",
+        "status": "czołówka światowa"
       },
       {
         "id": 3,
         "name": "Norwegia",
         "stars": 5,
-        "levelOfPlayers": " - ",
-        "levelOfJuniors": " - ",
-        "finacialCondition": " - ",
-        "status": " - "
+        "levelOfPlayers": "b. dobry",
+        "levelOfJuniors": "b. dobry",
+        "finacialCondition": "dobra",
+        "status": "czołowka światowa"
       },
       {
         "id": 4,
         "name": "Japonia",
         "stars": 4,
-        "levelOfPlayers": " - ",
-        "levelOfJuniors": " - ",
-        "finacialCondition": " - ",
-        "status": " - "
+        "levelOfPlayers": "dobry",
+        "levelOfJuniors": "dobry",
+        "finacialCondition": "dobra",
+        "status": "średnia"
       },
       {
         "id": 5,
         "name": "Polska",
         "stars": 4,
-        "levelOfPlayers": " - ",
-        "levelOfJuniors": " - ",
-        "finacialCondition": " - ",
-        "status": " - "
+        "levelOfPlayers": "dobry",
+        "levelOfJuniors": "dobry",
+        "finacialCondition": "dobry",
+        "status": "upadła potęga"
       },
       {
         "id": 6,
         "name": "Szwajcaria",
         "stars": 3,
-        "levelOfPlayers": " - ",
-        "levelOfJuniors": " - ",
-        "finacialCondition": " - ",
-        "status": " - "
+        "levelOfPlayers": "średni",
+        "levelOfJuniors": "dobry",
+        "finacialCondition": "średnia",
+        "status": "potentat"
       },
       {
         "id": 7,
         "name": "Finlandia",
         "stars": 3,
-        "levelOfPlayers": " - ",
-        "levelOfJuniors": " - ",
-        "finacialCondition": " - ",
-        "status": " - "
+        "levelOfPlayers": "średni",
+        "levelOfJuniors": "dobry",
+        "finacialCondition": "średnia",
+        "status": "potentat"
       },
       {
         "id": 8,
         "name": "Włochy",
         "stars": 3,
-        "levelOfPlayers": " - ",
-        "levelOfJuniors": " - ",
-        "finacialCondition": " - ",
-        "status": " - "
+        "levelOfPlayers": "słaby",
+        "levelOfJuniors": "słaby",
+        "finacialCondition": "śrendnia",
+        "status": "potentat"
       },
       {
         "id": 9,
         "name": "USA",
         "stars": 2,
-        "levelOfPlayers": " - ",
-        "levelOfJuniors": " - ",
-        "finacialCondition": " - ",
-        "status": " - "
+        "levelOfPlayers": "słaby",
+        "levelOfJuniors": "słaby",
+        "finacialCondition": "słaba",
+        "status": "słaby"
       },
       {
         "id": 10,
         "name": "Estonia",
         "stars": 2,
-        "levelOfPlayers": " - ",
-        "levelOfJuniors": " - ",
-        "finacialCondition": " - ",
-        "status": " - "
+        "levelOfPlayers": "b. słaby",
+        "levelOfJuniors": "słaby",
+        "finacialCondition": "słaba",
+        "status": "słaby"
       },
       {
         "id": 11,
         "name": "Czechy",
         "stars": 2,
-        "levelOfPlayers": " - ",
-        "levelOfJuniors": " - ",
-        "finacialCondition": " - ",
-        "status": " - "
+        "levelOfPlayers": "b. słaby",
+        "levelOfJuniors": "b. słaby",
+        "finacialCondition": "b. słaba",
+        "status": "b. słaba"
       }
     ]
   }

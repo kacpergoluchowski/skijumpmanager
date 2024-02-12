@@ -20,7 +20,18 @@ export default function CountryList( { setCountrySelected } ) {
     return (
         <div className="country-list">
             {countriesData && countriesData.countries.map(country => (
-                <CountryCard key={country.id} name={country.name} flag={flags[country.id]} rating={country.stars} setSelected = {setCountrySelected} />
+                <CountryCard 
+                    key={country.id} 
+                    name={country.name} 
+                    flag={flags[country.id]} 
+                    rating={country.stars} 
+                    levelOfPlayers={country.levelOfPlayers}
+                    levelOfJuniors={country.levelOfJuniors}
+                    finacialCondition={country.finacialCondition}
+                    status={country.status}
+                    setSelected = {setCountrySelected} 
+                    
+                    />
             ))}
         </div>
     );
