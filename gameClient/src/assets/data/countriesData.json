@@ -1,0 +1,113 @@
+{
+    "countries": [
+      {
+        "id": 0,
+        "name": "Austria",
+        "stars": 5,
+        "levelOfPlayers": " - ",
+        "levelOfJuniors": " - ",
+        "finacialCondition": " - ",
+        "status": " - "
+      },
+      {
+        "id": 1,
+        "name": "Niemcy",
+        "stars": 5,
+        "levelOfPlayers": " - ",
+        "levelOfJuniors": " - ",
+        "finacialCondition": " - ",
+        "status": " - "
+      },
+      {
+        "id": 2,
+        "name": "Słowenia",
+        "stars": 5,
+        "levelOfPlayers": " - ",
+        "levelOfJuniors": " - ",
+        "finacialCondition": " - ",
+        "status": " - "
+      },
+      {
+        "id": 3,
+        "name": "Norwegia",
+        "stars": 5,
+        "levelOfPlayers": " - ",
+        "levelOfJuniors": " - ",
+        "finacialCondition": " - ",
+        "status": " - "
+      },
+      {
+        "id": 4,
+        "name": "Japonia",
+        "stars": 4,
+        "levelOfPlayers": " - ",
+        "levelOfJuniors": " - ",
+        "finacialCondition": " - ",
+        "status": " - "
+      },
+      {
+        "id": 5,
+        "name": "Polska",
+        "stars": 4,
+        "levelOfPlayers": " - ",
+        "levelOfJuniors": " - ",
+        "finacialCondition": " - ",
+        "status": " - "
+      },
+      {
+        "id": 6,
+        "name": "Szwajcaria",
+        "stars": 3,
+        "levelOfPlayers": " - ",
+        "levelOfJuniors": " - ",
+        "finacialCondition": " - ",
+        "status": " - "
+      },
+      {
+        "id": 7,
+        "name": "Finlandia",
+        "stars": 3,
+        "levelOfPlayers": " - ",
+        "levelOfJuniors": " - ",
+        "finacialCondition": " - ",
+        "status": " - "
+      },
+      {
+        "id": 8,
+        "name": "Włochy",
+        "stars": 3,
+        "levelOfPlayers": " - ",
+        "levelOfJuniors": " - ",
+        "finacialCondition": " - ",
+        "status": " - "
+      },
+      {
+        "id": 9,
+        "name": "USA",
+        "stars": 2,
+        "levelOfPlayers": " - ",
+        "levelOfJuniors": " - ",
+        "finacialCondition": " - ",
+        "status": " - "
+      },
+      {
+        "id": 10,
+        "name": "Estonia",
+        "stars": 2,
+        "levelOfPlayers": " - ",
+        "levelOfJuniors": " - ",
+        "finacialCondition": " - ",
+        "status": " - "
+      },
+      {
+        "id": 11,
+        "name": "Czechy",
+        "stars": 2,
+        "levelOfPlayers": " - ",
+        "levelOfJuniors": " - ",
+        "finacialCondition": " - ",
+        "status": " - "
+      }
+    ]
+  }
+  
