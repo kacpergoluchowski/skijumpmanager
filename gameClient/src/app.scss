@@ -24,6 +24,14 @@
     }
 }
 
+.leave-button {
+    background-color: #C8102E;
+}
+
+.continue-button {
+    background-color: #48A34C;
+}
+
 .buttons-box {
     width: 35%;
     height: 35%;
@@ -83,14 +91,6 @@
         align-items: center;
         padding: 0 2vw;
         font-size: 24px;
-
-        .leave-button {
-            background-color: #C8102E;
-        }
-
-        .continue-button {
-            background-color: #48A34C;
-        }
 
         button {
             width: 425px;
@@ -170,6 +170,34 @@
     }
 }
 
+.confirm-box {
+    background-color: #445BA7;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 1049px;
+    height: 439px;
+    box-sizing: border-box;
+    padding: 50px 30px;
+    font-size: 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    div {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    span {
+        img {
+            width: 50px;
+        }
+    }
+}
 
 .home-page {
     display: flex;
@@ -186,6 +214,45 @@
             background-color: #445BA7;
             height: 157px;
             width: 1573px;
+            padding-inline: 50px;
+            display: flex;
+            align-items: center;
+
+            section {
+                display: flex;
+                justify-content: space-between;
+                width: 950px;
+            }
+
+            div {
+                height: 80px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding-block: 5px;
+                box-sizing: border-box;
+                margin-left: 20px;
+                font-size: 120%;
+            }
+
+            .date {
+                padding-block: 10px;
+            }
+
+            button {
+                width: 425px;
+                height: 84px;
+                display: flex;
+                align-items: center;
+                padding-left: 30px;
+                color: white;
+                border: none;
+                border-radius: 35px;
+                font-size: 36px;
+                gap: 20px;
+                cursor: pointer;
+                margin-left: 20px;
+            }
         }
 
         .home-content {
