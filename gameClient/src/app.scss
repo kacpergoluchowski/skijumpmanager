@@ -169,3 +169,28 @@
         color: #0b193b;
     }
 }
+
+
+.home-page {
+    display: flex;
+    color: white;
+
+    .navbar {
+        width: 350px;
+        background-color: #334583;
+        height: 100vh;
+    }
+
+    main {
+        .header {
+            background-color: #445BA7;
+            height: 157px;
+            width: 1573px;
+        }
+
+        .home-content {
+            background-color: #0E255C;
+            height: 930px;
+        }
+    }
+}

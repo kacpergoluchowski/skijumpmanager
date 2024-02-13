@@ -6,7 +6,8 @@
         "stars": 5,
         "levelOfPlayers": "doskonały",
         "levelOfJuniors": "doskonały",
-        "finacialCondition": "doskonała",
+        "levelOfObject": "doskonały", 
+        "finacialCondition": "doskonały",
         "status": "gigant"
       },
       {
@@ -15,7 +16,8 @@
         "stars": 5,
         "levelOfPlayers": "doskonały",
         "levelOfJuniors": "b. dobry",
-        "finacialCondition": "doskonała",
+        "levelOfObject": "doskonały",
+        "finacialCondition": "doskonały",
         "status": "gigant"
       },
       {
@@ -24,7 +26,8 @@
         "stars": 5,
         "levelOfPlayers": "b.dobry",
         "levelOfJuniors": "dobry",
-        "finacialCondition": "b. dobra",
+        "levelOfObject": "doskonały",
+        "finacialCondition": "b. dobry",
         "status": "czołówka światowa"
       },
       {
@@ -33,7 +36,8 @@
         "stars": 5,
         "levelOfPlayers": "b. dobry",
         "levelOfJuniors": "b. dobry",
-        "finacialCondition": "dobra",
+        "levelOfObject": "doskonały",
+        "finacialCondition": "dobry",
         "status": "czołowka światowa"
       },
       {
@@ -42,7 +46,8 @@
         "stars": 4,
         "levelOfPlayers": "dobry",
         "levelOfJuniors": "dobry",
-        "finacialCondition": "dobra",
+        "levelOfObject": "dobry",
+        "finacialCondition": "dobry",
         "status": "średnia"
       },
       {
@@ -51,6 +56,7 @@
         "stars": 4,
         "levelOfPlayers": "dobry",
         "levelOfJuniors": "dobry",
+        "levelOfObject": "dobry",
         "finacialCondition": "dobry",
         "status": "upadła potęga"
       },
@@ -60,7 +66,8 @@
         "stars": 3,
         "levelOfPlayers": "średni",
         "levelOfJuniors": "dobry",
-        "finacialCondition": "średnia",
+        "levelOfObject": "dobry",
+        "finacialCondition": "średni",
         "status": "potentat"
       },
       {
@@ -69,7 +76,8 @@
         "stars": 3,
         "levelOfPlayers": "średni",
         "levelOfJuniors": "dobry",
-        "finacialCondition": "średnia",
+        "levelOfObject": "dobry",
+        "finacialCondition": "średni",
         "status": "potentat"
       },
       {
@@ -78,7 +86,8 @@
         "stars": 3,
         "levelOfPlayers": "słaby",
         "levelOfJuniors": "słaby",
-        "finacialCondition": "śrendnia",
+        "levelOfObject": "średni",
+        "finacialCondition": "średni",
         "status": "potentat"
       },
       {
@@ -87,7 +96,8 @@
         "stars": 2,
         "levelOfPlayers": "słaby",
         "levelOfJuniors": "słaby",
-        "finacialCondition": "słaba",
+        "levelOfObject": "średni",
+        "finacialCondition": "słaby",
         "status": "słaby"
       },
       {
@@ -96,6 +106,7 @@
         "stars": 2,
         "levelOfPlayers": "b. słaby",
         "levelOfJuniors": "słaby",
+        "levelOfObject": "słaby",
         "finacialCondition": "słaba",
         "status": "słaby"
       },
@@ -105,7 +116,8 @@
         "stars": 2,
         "levelOfPlayers": "b. słaby",
         "levelOfJuniors": "b. słaby",
-        "finacialCondition": "b. słaba",
+        "levelOfObject": "słaby",
+        "finacialCondition": "b. słaby",
         "status": "b. słaba"
       }
     ]
