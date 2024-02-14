@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import '../app.scss';
 import austriaFlag from '../assets/images/austriaFlag.png';
+import germanyFlag from '../assets/images/germanyFlag.png';
+import sloveniaFlag from '../assets/images/sloveniaFlag.png';
+import norwayFlag from '../assets/images/norwayFlag.png';
 import continueBtnPic from '../assets/images/continueBtnPic.png';
+import CountryDataContext from "../context/CountryDataContext";
 
 export default function Header() {
+    const countryData = useContext(CountryDataContext);
+    const flags = [austriaFlag, germanyFlag, sloveniaFlag, norwayFlag]; // do dokonczenia
+
     let [currentDate, setCurrentDate] = useState(new Date(2024, 5, 10));
     let [currentMonth, setCurrentMonth] = useState('cze');
     let [currentDay, setCurrentDay] = useState('poniedziałek');
@@ -23,7 +30,7 @@ export default function Header() {
 
     return (
         <header className="header">
-            <img src = {austriaFlag} />
+            <img src = {flags[countryData.id]} />
             <section>
                 <div>
                     <h1> Dom </h1>

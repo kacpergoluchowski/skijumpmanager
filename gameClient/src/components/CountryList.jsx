@@ -23,6 +23,7 @@ export default function CountryList( { setCountrySelected } ) {
             {countriesData && countriesData.countries.map(country => (
                 <CountryCard 
                     key={country.id} 
+                    id={country.id}
                     name={country.name} 
                     flag={flags[country.id]} 
                     rating={country.stars} 

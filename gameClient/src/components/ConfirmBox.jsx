@@ -7,7 +7,14 @@ import axios from 'axios';
 
 export default function ConfirmBox( {rejectCountry} ) {
     function createNewGame() {
-        axios.post('http://localhost:8080/createNewGame').then(response => {
+        const selectedCountry = {
+            id: localStorage.getItem('id'),
+            name: localStorage.getItem('name')
+        }
+
+        console.log(selectedCountry);
+
+        axios.post('http://localhost:8080/createNewGame', selectedCountry).then(response => {
             console.log(response.data);
           })
           .catch(error => {
