@@ -11,16 +11,17 @@ import campsPic from '../assets/images/campsPic.png';
 import technologyPic from '../assets/images/technologyPic.png';
 import shopPic from '../assets/images/shopPic.png';
 import finacialPic from '../assets/images/finacialPic.png';
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
     return (
         <nav className="navbar">
-            <button> <img src = {homePagePic} /> Home </button>
+            <Link to = '/home'> <button> <img src = {homePagePic} /> Home </button> </Link>
             <button> <img src = {skiJumpersCadrePic} /> Kadra </button>
             <button> <img src = {nationalListPic} /> Lista krajowa </button>
             <button> <img src = {staffPic} /> Sztab </button>
             <button> <img src = {competitionPic} /> Zawody </button>
-            <button> <img src = {calendarPic} /> Kalendarz </button>
+            <Link to = '/calendar'> <button> <img src = {calendarPic} /> Kalendarz </button> </Link>
             <button> <img src = {trainingPic} /> Trening </button>
             <button> <img src = {campsPic} /> Obozy </button>
             <button> <img src = {technologyPic} /> Technologia </button>

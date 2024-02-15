@@ -110,25 +110,28 @@ app.post('/refreshDate', async (req, res) => {
   });
 });
 
+app.post('/getCalendar', async (req, res) => {
+  const filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Github\\skijumpmanager\\gameClient\\src\\assets\\data\\worldCupCalendars.json';
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Błąd podczas odczytu pliku:', err);
+      return;
+    }
+  
+    try {
+      const worldCupCalendars = JSON.parse(data);
+      res.json(worldCupCalendars.one)
+  
+    } catch (error) {
+      console.error('Błąd podczas parsowania danych JSON:', error);
+    }
+  });
+  
+})
 
 
 app.listen(PORT, () => {
   console.log(`Serwer działa na porcie ${PORT}`);
 });
 
-const filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Github\\skijumpmanager\\gameClient\\src\\assets\\data\\worldCupCalendars.json';
-
-fs.readFile(filePath, 'utf8', (err, data) => {
-  if (err) {
-    console.error('Błąd podczas odczytu pliku:', err);
-    return;
-  }
-
-  try {
-    const worldCupCalendars = JSON.parse(data);
-    console.log(worldCupCalendars.two);
-
-  } catch (error) {
-    console.error('Błąd podczas parsowania danych JSON:', error);
-  }
-});
