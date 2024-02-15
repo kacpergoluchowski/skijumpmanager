@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import HomeContent from "../components/HomeContent";
 import CountryDataContext from "../context/CountryDataContext";
 import axios from 'axios';
+import Loader from "../components/Loader";
 
 export default function Home() {
     const [countryInfo, setCountryInfo] = useState(undefined);
@@ -21,19 +22,23 @@ export default function Home() {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        console.log(countryInfo)
+    }, [countryInfo])
+
     return (
         <div>
-        { countryInfo && (
-            <CountryDataContext.Provider value={countryInfo}>
-            <div className="home-page">
-                <Navbar />
-                <main>
-                    <Header />
-                    <HomeContent />
-                </main>
-            </div>
-        </CountryDataContext.Provider>
-        )}
+            {countryInfo && (
+                <CountryDataContext.Provider value={countryInfo}>
+                    <div className="home-page">
+                        <Navbar />
+                        <main>
+                            <Header />
+                            <HomeContent />
+                        </main>
+                    </div>
+                </CountryDataContext.Provider>
+            )}
         </div>
     );
 }

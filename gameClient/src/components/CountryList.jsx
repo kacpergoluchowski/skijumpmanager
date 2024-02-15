@@ -16,7 +16,6 @@ import estoniaFlag from '../assets/images/estoniaFlag.png';
 import czechiaFlag from '../assets/images/czechiaFlag.png';
 
 export default function CountryList( { setCountrySelected } ) {
-    console.log(countriesData.countries[2].levelOfObject);
     const flags = [austriaFlag, germanyFlag, sloveniaFlag, norwayFlag, japanFlag, polandFlag, swissFlag, finlandFlag, italyFlag, usaFlag, estoniaFlag, czechiaFlag];
     return (
         <div className="country-list">
@@ -32,9 +31,8 @@ export default function CountryList( { setCountrySelected } ) {
                     levelOfObject={country.levelOfObject}
                     finacialCondition={country.finacialCondition}
                     status={country.status}
-                    setSelected = {setCountrySelected} 
-                    
-                    />
+                    setSelected = {setCountrySelected}     
+                />
             ))}
         </div>
     );

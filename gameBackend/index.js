@@ -10,38 +10,38 @@ app.use(express.json());
 app.use(cors());
 
 app.post('/createNewGame', (req, res) => {
-  console.log(req.body)
-  const folderName = 'Ski jumping manager';
-  const subFolderName = 'savegame1';
-  const fileName = 'countryInfo.json';
-  const fileContent = {
-    id: req.body.id,
-    name: req.body.name
+  const fileComponents = {
+    folderName: "Ski jumping manager",
+    subFolderName: 'savegame1',
+    fileName: 'savegame.json'
   };
 
-  const folderPath = path.join('C:', 'Users', 'kacpe', 'OneDrive', 'Dokumenty', folderName);
-  const subFolderPath = path.join(folderPath, subFolderName);
-  const filePath = path.join(subFolderPath, fileName);
+  const fileContent = {
+    id: req.body.id,
+    name: req.body.name,
+    day: 10,
+    month: 5,
+    year: 2024
+  };
+
+  const folderPath = path.join('C:', 'Users', 'kacpe', 'OneDrive', 'Dokumenty', fileComponents.folderName);
+  const subFolderPath = path.join(folderPath, fileComponents.subFolderName);
+  const filePath = path.join(subFolderPath, fileComponents.fileName);
 
   fs.mkdir(folderPath, { recursive: true }, (err) => {
     if (err) {
-      console.error('Błąd podczas tworzenia folderu:', err);
       return res.status(500).json({ error: 'Wystąpił błąd podczas tworzenia folderu.' });
     }
 
     fs.mkdir(subFolderPath, { recursive: true }, (err) => {
       if (err) {
-        console.error('Błąd podczas tworzenia drugiego folderu:', err);
         return res.status(500).json({ error: 'Wystąpił błąd podczas tworzenia drugiego folderu.' });
       }
 
       fs.writeFile(filePath, JSON.stringify(fileContent), (err) => {
         if (err) {
-          console.error('Błąd podczas zapisywania pliku:', err);
           return res.status(500).json({ error: 'Wystąpił błąd podczas zapisywania pliku.' });
         }
-
-        console.log('Plik został zapisany pomyślnie.');
         res.status(200).json({ message: 'Plik został zapisany pomyślnie.' });
       });
     });
@@ -49,22 +49,68 @@ app.post('/createNewGame', (req, res) => {
 });
 
 app.post('/getSelectedCountryInfo', async (req, res) => {
-  const fileName = 'countryInfo.json'
+  const fileName = 'savegame.json';
   const folderPath = path.join('C:', 'Users', 'kacpe', 'OneDrive', 'Dokumenty', 'Ski jumping manager', 'savegame1', fileName);
   
   try {
     const fileContent = fs.readFileSync(folderPath, 'utf-8');
-    const fileContetJson = JSON.parse(fileContent)
-    res.json(fileContetJson);
+    const fileContentJson = JSON.parse(fileContent);
+    res.json(fileContentJson);
   } catch (error) {
     console.error('Błąd podczas odczytu pliku:', error);
     res.status(500).send('Wystąpił błąd podczas przetwarzania żądania');
   }
-})
+});
 
+app.post('/loadingSave', async (req, res) => {
+  const folderPath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Ski jumping manager\\savegame1';
+
+  if (fs.existsSync(folderPath)) {
+    res.status(200).json({ success: true, message: "folder istnieje" });
+  } else {
+    res.status(200).json({ success: false, message: "folder nie istnieje" });
+  }
+});
+
+app.post('/refreshDate', async (req, res) => {
+  const filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Ski jumping manager\\savegame1\\savegame.json';
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Błąd odczytu pliku:', err);
+      return res.status(500).json({ error: 'Błąd odczytu pliku.' });
+    }
+
+    let jsonObject;
+    try {
+      jsonObject = JSON.parse(data);
+    } catch (error) {
+      console.error('Błąd parsowania pliku JSON:', error);
+      return res.status(500).json({ error: 'Błąd parsowania pliku JSON.' });
+    }
+
+    if (!Array.isArray(req.body) || req.body.length !== 3) {
+      return res.status(400).json({ error: 'Nieprawidłowe dane w żądaniu.' });
+    }
+
+    jsonObject.day = req.body[0];
+    jsonObject.month = req.body[1];
+    jsonObject.year = req.body[2];
+
+    const jsonString = JSON.stringify(jsonObject, null, 2);
+
+    fs.writeFile(filePath, jsonString, 'utf8', (err) => {
+      if (err) {
+        console.error('Błąd zapisu pliku:', err);
+        return res.status(500).json({ error: 'Błąd zapisu pliku.' });
+      }
+      console.log('Plik JSON został pomyślnie zaktualizowany.');
+      res.status(200).json({ message: 'Plik JSON został pomyślnie zaktualizowany.' });
+    });
+  });
+});
 
 
 app.listen(PORT, () => {
   console.log(`Serwer działa na porcie ${PORT}`);
 });
-
