@@ -52,7 +52,7 @@
         align-items: center;
         gap: 20px;
         padding-left: 60px;
-        background: linear-gradient(to left,#0C2359, #455CA8);
+        background: linear-gradient(to left, #0C2359, #455CA8);
         color: white;
         border: none;
         cursor: pointer;
@@ -113,7 +113,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-        
+
         .country-card {
             color: white;
             width: 347px;
@@ -123,12 +123,12 @@
             align-items: center;
             justify-content: center;
             gap: 20px;
-    
+
             img {
                 width: 145px;
             }
         }
-    
+
         .country-card:hover {
             background-color: #334583;
             cursor: pointer;
@@ -276,6 +276,32 @@
         .home-content {
             background-color: #0E255C;
             height: 930px;
+            display: flex;
+            align-items: center;
+            
+            .home-content-wrapper {
+                width: 1160px;
+                height: 925px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                flex-wrap: wrap;
+
+                .home-card {
+                    width: 538px;
+                    height: 393px;
+                    background-color: rgba(68, 91, 167, 0.5);
+                }
+
+            }
+
+            .home-ranking {
+                background-color: rgba(68, 91, 167, 0.5);
+                height: 855px;
+                width: 360px;
+                margin-left: 30px;
+            }
+
         }
     }
 }

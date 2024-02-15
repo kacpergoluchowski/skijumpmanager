@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import '../app.scss';
 import austriaFlag from '../assets/images/austriaFlag.png';
 import germanyFlag from '../assets/images/germanyFlag.png';
@@ -23,25 +23,29 @@ export default function Header() {
 
     const days = ['Poniedziałek,', 'Wtorek,', 'Środa,', 'Czwartek,', 'Piątek,', 'Sobota,', 'Niedziela,'];
     const months = ["sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paz", "lis", "gru"];
-    let [currentDate, setCurrentDate] = useState(new Date(savegameData.year, savegameData.month, savegameData.day));
-    let [currentMonth, setCurrentMonth] = useState('cze');
-    let [currentDay, setCurrentDay] = useState(days[currentDate.getDay()]);
-    let [currentYear, setCurrentYear] = useState(savegameData.year);
+    const [currentDate, setCurrentDate] = useState(new Date(savegameData.year, savegameData.month, savegameData.day));
+    const [currentMonth, setCurrentMonth] = useState(months[currentDate.getMonth()]);
+    const [currentDay, setCurrentDay] = useState(days[currentDate.getDay()]);
+    const [currentYear, setCurrentYear] = useState(savegameData.year);
+    const [toNextCompetitions, setToNextCompetitions] = useState(undefined);
+
+    useEffect(() => {
+        setToNextCompetitions(nextCompetitions());
+    }, [currentDate]); // Dodajemy zależność od zmiany daty, aby wywołać useEffect po każdej zmianie daty
 
     async function goToNextDay() {
         const nextDay = new Date(currentDate);
         nextDay.setDate(nextDay.getDate() + 1);
     
         const currentDayOfWeek = days[nextDay.getDay()];
-    
         const currentMonth = months[nextDay.getMonth()];
-    
         const currentYear = nextDay.getFullYear();
     
         setCurrentDate(nextDay);
         setCurrentDay(currentDayOfWeek);
         setCurrentMonth(currentMonth);
-    
+        setCurrentYear(currentYear);
+        
         const date = [nextDay.getDate(), nextDay.getMonth(), currentYear];
     
         try {
@@ -50,23 +54,29 @@ export default function Header() {
             console.error('Wystąpił błąd podczas aktualizacji daty:', error);
         }
     }
+
+    function nextCompetitions() {
+        const competitionsDate = new Date('2024-07-28');
+        const diff = competitionsDate.getTime() - currentDate.getTime();
+        return diff > 0 ? Math.ceil(diff / (1000 * 3600 * 24)) : 0; 
+    }
     
     return (
         <header className="header">
             {savegameData && (
                 <>
-                    <img src={flags[savegameData.id]} />
+                    <img src={flags[savegameData.id]} alt="Flaga" />
                     <section>
                         <div>
                             <h1> Dom </h1>
-                            <h3> Następne zawody za 65 dni </h3>
+                            <h3> Następne zawody za {toNextCompetitions} dni </h3>
                         </div>
                         <div className="date">
                             <h3> {currentDay} </h3>
-                            <h3> {currentDate.getDate()} {currentMonth} {currentDate.getYear() + 1900} </h3>
+                            <h3> {currentDate.getDate()} {currentMonth} {currentYear} </h3>
                         </div>
                     </section>
-                    <button className="continue-button" onClick={() => goToNextDay()}> <img src={continueBtnPic} /> Kontynuuj </button>
+                    <button className="continue-button" onClick={goToNextDay}>Kontynuuj</button>
                 </>
             )}
         </header>
