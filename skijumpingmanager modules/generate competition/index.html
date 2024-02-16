@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
+        * {
+            font-family: Jura;
+        }
+        td {
+            border: solid black 1px;
+            padding: 5px;
+            font-size: 19px;
+            width: 6.5vw;
+            text-align: center;
+        }
+        
+        table {
+            border-collapse: collapse;
+        }
+
+        .headers {
+            background-color: lime;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="jump()"> generuj konkurs! </button>
+    <br><br>
+    <h1> Oberstdorf HS137 </h1>
+    <table>
+        <tr>
+            <td class="to-beat"> </td>
+        </tr>
+        <tr class="headers">
+            <td> Lp.    </td>
+            <td> Name </td>
+            <td> Surname </td>
+            <td> Gate </td>
+            <td> Speed </td>
+            <td> Style </td>
+            <td> Distance </td>
+            <td> Points </td>
+            <td> </td>
+            <td> Gate </td>
+            <td> Speed </td>
+            <td> Style </td>
+            <td> Distance </td>
+            <td> Final Points </td>
+        </tr>
+    </table>
+    <table class="results">
+        
+    </table>
+    <p> Next competitor: <span id="next-competitor" style="font-weight: bold;"> </span> </p>
+    
+    <script src="app.js"></script>
+</body>
+</html>
