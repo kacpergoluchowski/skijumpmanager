@@ -8,30 +8,67 @@ import japanFlag from '../assets/images/japanFlag.png';
 import polandFlag from '../assets/images/polandFlag.png';
 import swissFlag from '../assets/images/swissFlag.png';
 import finlandFlag from '../assets/images/finlandFlag.png';
-import italyflag from '../assets/images/italyFlag.png';
+import italyFlag from '../assets/images/italyFlag.png';
 import usaFlag from '../assets/images/usaFlag.png';
 import czechiaFlag from '../assets/images/czechiaFlag.png';
 import estoniaFlag from '../assets/images/estoniaFlag.png';
-import continueBtnPic from '../assets/images/continueBtnPic.png';
 import CountryDataContext from "../context/CountryDataContext";
 import axios from 'axios';
 
+const flags = [austriaFlag, germanyFlag, sloveniaFlag, norwayFlag, japanFlag, polandFlag, swissFlag, finlandFlag, italyFlag, usaFlag, czechiaFlag, estoniaFlag]; 
 
-export default function Header() {
+const days = ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela'];
+const months = ["sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paz", "lis", "gru"];
+
+const Header = () => {
     const savegameData = useContext(CountryDataContext);
-    const flags = [austriaFlag, germanyFlag, sloveniaFlag, norwayFlag, japanFlag, polandFlag, swissFlag, finlandFlag, italyflag, usaFlag, czechiaFlag, estoniaFlag]; 
-
-    const days = ['Poniedziałek,', 'Wtorek,', 'Środa,', 'Czwartek,', 'Piątek,', 'Sobota,', 'Niedziela,'];
-    const months = ["sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paz", "lis", "gru"];
     const [currentDate, setCurrentDate] = useState(new Date(savegameData.year, savegameData.month, savegameData.day));
     const [currentMonth, setCurrentMonth] = useState(months[currentDate.getMonth()]);
     const [currentDay, setCurrentDay] = useState(days[currentDate.getDay()]);
     const [currentYear, setCurrentYear] = useState(savegameData.year);
     const [toNextCompetitions, setToNextCompetitions] = useState(undefined);
+    const [calendarInfo, setCalendarInfo] = useState(undefined);
+    const [nextCompetitionsDate, setNextCompetitionsDate] = useState(undefined);
+    const [competitionsToday, setCompetitionsToday] = useState(false);
+
+    useEffect(() => {
+        const fetchCalendarInfo = async () => { 
+            try {
+                const calendarInfoResponse = await axios.post('http://127.0.0.1:8080/getCalendar');
+                setCalendarInfo(calendarInfoResponse.data);
+            } catch (error) {
+                console.error("Błąd podczas pobierania informacji o kalendarzu:", error);
+            }
+        };
+
+        fetchCalendarInfo();
+    }, [currentDate]);
 
     useEffect(() => {
         setToNextCompetitions(nextCompetitions());
-    }, [currentDate]); // Dodajemy zależność od zmiany daty, aby wywołać useEffect po każdej zmianie daty
+    }, [currentDate]); 
+
+    useEffect(() => {
+        if (calendarInfo) {
+            for (let i = 0; i < calendarInfo.length; i++) {
+                if (calendarInfo[i].ended) {
+                    console.log(calendarInfo[i].place);
+                } else {
+                    const next = new Date(calendarInfo[i].year, calendarInfo[i].month, calendarInfo[i].day);
+                    setNextCompetitionsDate(next);
+                    break;
+                }
+            }
+        }
+    }, [calendarInfo]);
+
+    useEffect(() => {
+        checkNextCompetitions();
+    }, [nextCompetitionsDate, currentDate]);
+
+    useEffect(() => {
+        setToNextCompetitions(nextCompetitions());
+    }, [currentDate]); 
 
     async function goToNextDay() {
         const nextDay = new Date(currentDate);
@@ -56,11 +93,20 @@ export default function Header() {
     }
 
     function nextCompetitions() {
-        const competitionsDate = new Date('2024-07-28');
-        const diff = competitionsDate.getTime() - currentDate.getTime();
+        const competitionsDate = nextCompetitionsDate;
+        const diff = competitionsDate - currentDate;
         return diff > 0 ? Math.ceil(diff / (1000 * 3600 * 24)) : 0; 
     }
-    
+
+    function checkNextCompetitions() {
+        if(currentDate && nextCompetitionsDate) {
+            if(currentDate.getTime() == nextCompetitionsDate.getTime())
+                setCompetitionsToday(true);
+            else
+                setCompetitionsToday(false);
+        }
+    }
+
     return (
         <header className="header">
             {savegameData && (
@@ -76,9 +122,12 @@ export default function Header() {
                             <h3> {currentDate.getDate()} {currentMonth} {currentYear} </h3>
                         </div>
                     </section>
-                    <button className="continue-button" onClick={goToNextDay}>Kontynuuj</button>
+                    { !competitionsToday && <button className="continue-button" onClick={goToNextDay}> Kontynuuj </button> }
+                    { competitionsToday && <button className="continue-button"> Zawody! </button> }
                 </>
             )}
         </header>
     )
-}
+};
+
+export default Header;

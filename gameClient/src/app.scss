@@ -353,6 +353,22 @@
             td {
                 text-align: center;
                 padding: 5px 30px;
+
+                .event-gp {
+                    color: #48A34C;
+                }
+
+                .event-4ht {
+                    color: aqua;
+                }
+                
+                .event-worldChamp {
+                    color: red
+                }
+
+                .event-rawair {
+                    color: rgb(55, 55, 255)
+                }
             }
 
             tr {

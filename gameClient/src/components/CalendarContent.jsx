@@ -45,6 +45,8 @@ export default function CalendarContent() {
                                     day={place.day} 
                                     month={place.month} 
                                     year={place.year}
+                                    gp={place.gp}
+                                    fht={place.fht}
                                     worldChamp={place.worldChamp}
                                     rawair={place.rawair}
                                 />
