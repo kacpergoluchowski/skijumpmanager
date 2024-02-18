@@ -385,3 +385,23 @@
         }
     }
 }
+
+// ------------------------------------------------------------------------ national list page ------------------------------------------------------------------------
+
+.teams-navbar {
+    background-color: #3d4d85;
+    height: 68px;
+
+    button {
+        height: 100%;
+        width: 260px;
+        font-size: 30px;
+        background-color: inherit;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #2f4280;
+    }
+}

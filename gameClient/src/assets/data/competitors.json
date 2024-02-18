@@ -45,9 +45,9 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
-        "teamC": false,
+        "teamC": true,
         "teamD": false
     },
     {
@@ -79,8 +79,8 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
-        "teamB": false,
+        "teamA": false,
+        "teamB": true,
         "teamC": false,
         "teamD": false
     },
@@ -215,14 +215,14 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
     },
     {
-        "name": "Johann",
-        "surname": "Andre Forfang",
+        "name": "Johann A.",
+        "surname": "Forfang",
         "age": 29,
         "countryId": 3,
         "invasionTechnique": 80,
@@ -436,7 +436,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -504,7 +504,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -657,7 +657,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -708,7 +708,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -725,7 +725,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -776,7 +776,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -793,7 +793,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -861,7 +861,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -878,7 +878,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -929,7 +929,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -946,7 +946,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -963,7 +963,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -997,7 +997,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1048,7 +1048,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1065,7 +1065,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1082,7 +1082,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1099,7 +1099,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1116,7 +1116,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1133,7 +1133,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1150,7 +1150,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1167,7 +1167,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1184,7 +1184,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1201,7 +1201,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1218,7 +1218,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1269,7 +1269,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1286,7 +1286,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1320,7 +1320,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1337,7 +1337,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1354,7 +1354,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1371,7 +1371,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1405,7 +1405,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1422,7 +1422,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1439,7 +1439,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1456,7 +1456,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1473,7 +1473,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1490,7 +1490,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1507,7 +1507,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1524,7 +1524,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1541,7 +1541,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1558,7 +1558,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
@@ -1575,7 +1575,7 @@
         "gpPoints": 0,
         "fhtPoints": 0,
         "rawairPoints": 0,
-        "teamA": true,
+        "teamA": false,
         "teamB": false,
         "teamC": false,
         "teamD": false
