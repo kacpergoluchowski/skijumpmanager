@@ -16,11 +16,11 @@ import estoniaFlag from '../assets/images/estoniaFlag.png';
 export default function CalendarRow( {lp, place, hillSize, countryIndex, day, month, year, worldChamp, rawair, gp, fht} ) {
     month++;
     const flags = [austriaFlag, germanyFlag, sloveniaFlag, norwayFlag, japanFlag, polandFlag, swissFlag, finlandFlag, italyflag, usaFlag, czechiaFlag, estoniaFlag]; 
+
     function formatDate(date) {
         if(date < 10)
             return "0"+date;
-        else
-            return date;
+        return date;
     }
     
     return (

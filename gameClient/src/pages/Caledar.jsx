@@ -2,11 +2,8 @@ import React, { useEffect, useState } from "react";
 import '../app.scss';
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
-import HomeContent from "../components/HomeContent";
 import CountryDataContext from "../context/CountryDataContext";
 import axios from 'axios';
-import Loader from "../components/Loader";
-import Menu from "../components/Menu";
 import CalendarContent from "../components/CalendarContent";
 
 export default function Calendar() {

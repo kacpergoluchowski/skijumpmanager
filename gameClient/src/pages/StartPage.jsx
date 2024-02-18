@@ -1,6 +1,5 @@
 import React from "react";
 import '../app.scss';
-import { Link } from "react-router-dom";
 import ButtonsBox from "../components/ButtonsBox";
 import MediaBox from "../components/MediaBox";
 

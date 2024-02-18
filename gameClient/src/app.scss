@@ -10,19 +10,19 @@
 
 ::-webkit-scrollbar {
     width: 10px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: #465385; 
-  }
-   
-  ::-webkit-scrollbar-thumb {
-    background: #334583; 
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
+}
+
+::-webkit-scrollbar-track {
+    background: #465385;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334583;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
 
 .start-page {
     background-image: url('./assets/images/startPageBackground.png');
@@ -294,7 +294,7 @@
             height: 930px;
             display: flex;
             align-items: center;
-            
+
             .home-content-wrapper {
                 width: 1160px;
                 height: 925px;
@@ -349,7 +349,7 @@
             width: 100%;
             font-size: 25px;
             height: 100%;
-            
+
             td {
                 text-align: center;
                 padding: 5px 30px;
@@ -361,7 +361,7 @@
                 .event-4ht {
                     color: aqua;
                 }
-                
+
                 .event-worldChamp {
                     color: red
                 }
@@ -378,7 +378,7 @@
             .headlines {
                 font-size: 35px;
             }
-        
+
             .calendar-row {
                 img {
                     width: 30px;
@@ -475,6 +475,126 @@
                 border: none;
                 color: white;
                 cursor: pointer;
+            }
+        }
+    }
+}
+
+.nationalList-page {
+    display: flex;
+    color: white;
+
+    .navbar {
+        width: 350px;
+        background-color: #334583;
+        height: 100vh;
+
+        button {
+            width: 100%;
+            height: 95px;
+            background-color: inherit;
+            border: none;
+            color: white;
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+            padding-left: 40px;
+            gap: 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #465385;
+        }
+    }
+
+    main {
+        .header {
+            background-color: #445BA7;
+            height: 157px;
+            width: 1573px;
+            padding-inline: 50px;
+            display: flex;
+            align-items: center;
+
+            section {
+                display: flex;
+                justify-content: space-between;
+                width: 950px;
+            }
+
+            div {
+                height: 80px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding-block: 5px;
+                box-sizing: border-box;
+                margin-left: 20px;
+                font-size: 120%;
+            }
+
+            .date {
+                padding-block: 10px;
+            }
+
+            button {
+                width: 425px;
+                height: 84px;
+                display: flex;
+                align-items: center;
+                padding-left: 30px;
+                color: white;
+                border: none;
+                border-radius: 35px;
+                font-size: 36px;
+                gap: 20px;
+                cursor: pointer;
+                margin-left: 20px;
+            }
+        }
+
+        .nationalList-content {
+            background-color: #0E255C;
+            height: 930px;
+            display: flex;
+            align-items: start;
+
+            table {
+                margin-top: 20px;
+                width: 100%;
+
+                th {
+                    font-size: 28px;
+                }
+
+                td {
+                    width: 16%;
+                    font-size: 25px;
+                    padding-block: 10px;
+                    text-align: center;
+                }
+
+                tr:hover {
+                    background-color: #0b193b;
+                    cursor: pointer;
+                }
+                
+            }
+
+            .nationalList-wrapper {
+                width: 1160px;
+                height: 925px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                flex-wrap: wrap;
+
+                .nationalList-card {
+                    width: 538px;
+                    height: 393px;
+                    background-color: rgba(68, 91, 167, 0.5);
+                }
             }
         }
     }

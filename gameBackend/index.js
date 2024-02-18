@@ -9,6 +9,11 @@ const PORT = 8080;
 app.use(express.json());
 app.use(cors());
 
+app.listen(PORT, () => {
+  console.log(`Serwer działa na porcie ${PORT}`);
+});
+
+// ---------------------------------------------- tworzenie nowej gry, folderu z danymi itp ----------------------------------------------
 app.post('/createNewGame', (req, res) => {
   const fileComponents = {
     folderName: "Ski jumping manager",
@@ -48,6 +53,8 @@ app.post('/createNewGame', (req, res) => {
   });
 });
 
+
+// ---------------------------------------------- pobieranie danych na temat wybranej reprezentacji ----------------------------------------------
 app.post('/getSelectedCountryInfo', async (req, res) => {
   const fileName = 'savegame.json';
   const folderPath = path.join('C:', 'Users', 'kacpe', 'OneDrive', 'Dokumenty', 'Ski jumping manager', 'savegame1', fileName);
@@ -57,11 +64,12 @@ app.post('/getSelectedCountryInfo', async (req, res) => {
     const fileContentJson = JSON.parse(fileContent);
     res.json(fileContentJson);
   } catch (error) {
-    console.error('Błąd podczas odczytu pliku:', error);
     res.status(500).send('Wystąpił błąd podczas przetwarzania żądania');
   }
 });
 
+
+// ---------------------------------------------- wczytywanie save'a, ----------------------------------------------
 app.post('/loadingSave', async (req, res) => {
   const folderPath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Ski jumping manager\\savegame1';
 
@@ -72,6 +80,7 @@ app.post('/loadingSave', async (req, res) => {
   }
 });
 
+// ---------------------------------------------- aktualizowanie daty ----------------------------------------------
 app.post('/refreshDate', async (req, res) => {
   const filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Ski jumping manager\\savegame1\\savegame.json';
 
@@ -101,7 +110,6 @@ app.post('/refreshDate', async (req, res) => {
 
     fs.writeFile(filePath, jsonString, 'utf8', (err) => {
       if (err) {
-        console.error('Błąd zapisu pliku:', err);
         return res.status(500).json({ error: 'Błąd zapisu pliku.' });
       }
       console.log('Plik JSON został pomyślnie zaktualizowany.');
@@ -110,6 +118,7 @@ app.post('/refreshDate', async (req, res) => {
   });
 });
 
+// ---------------------------------------------- pobieranie kalendarza dla aktualnego sezonu ----------------------------------------------
 app.post('/getCalendar', async (req, res) => {
   const filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Github\\skijumpmanager\\gameClient\\src\\assets\\data\\worldCupCalendars.json';
 
@@ -131,7 +140,19 @@ app.post('/getCalendar', async (req, res) => {
 })
 
 
-app.listen(PORT, () => {
-  console.log(`Serwer działa na porcie ${PORT}`);
-});
+// ---------------------------------------------- pobieranie kadry zawodników ----------------------------------------------
+app.post('/getCompetitors', async (req, res) => {
+  const filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Github\\skijumpmanager\\gameClient\\src\\assets\\data\\competitors.json';
 
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if(err)
+      console.error(err);
+
+    try {
+      const competitors = JSON.parse(data);
+      res.json(competitors);
+    } catch(err) {
+      console.error(err);
+    }
+  })
+})

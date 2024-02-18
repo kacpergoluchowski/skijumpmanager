@@ -17,6 +17,7 @@ import czechiaFlag from '../assets/images/czechiaFlag.png';
 
 export default function CountryList( { setCountrySelected } ) {
     const flags = [austriaFlag, germanyFlag, sloveniaFlag, norwayFlag, japanFlag, polandFlag, swissFlag, finlandFlag, italyFlag, usaFlag, estoniaFlag, czechiaFlag];
+    
     return (
         <div className="country-list">
             {countriesData && countriesData.countries.map(country => (

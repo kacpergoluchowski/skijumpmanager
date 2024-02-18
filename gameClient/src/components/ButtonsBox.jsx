@@ -1,11 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 import '../app.scss'
 import playGamePic from '../assets/images/playGameBtnPic.png'
 import settingsPic from '../assets/images/settingsBtnPic.png';
 import leavePic from '../assets/images/leaveBtnPic.png';
-import { Link } from "react-router-dom";
-import axios from 'axios'
-import { useNavigate } from "react-router-dom";
 
 export default function ButtonsBox() {
     const navigate = useNavigate();
@@ -17,7 +17,6 @@ export default function ButtonsBox() {
             navigate('/home');
         else 
             navigate('/select-country');
-
     }
 
     return (

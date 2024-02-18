@@ -20,16 +20,16 @@ const flags = [austriaFlag, germanyFlag, sloveniaFlag, norwayFlag, japanFlag, po
 const days = ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela'];
 const months = ["sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paz", "lis", "gru"];
 
-const Header = () => {
+export default function Header() {
     const savegameData = useContext(CountryDataContext);
-    const [currentDate, setCurrentDate] = useState(new Date(savegameData.year, savegameData.month, savegameData.day));
-    const [currentMonth, setCurrentMonth] = useState(months[currentDate.getMonth()]);
-    const [currentDay, setCurrentDay] = useState(days[currentDate.getDay()]);
-    const [currentYear, setCurrentYear] = useState(savegameData.year);
-    const [toNextCompetitions, setToNextCompetitions] = useState(undefined);
-    const [calendarInfo, setCalendarInfo] = useState(undefined);
-    const [nextCompetitionsDate, setNextCompetitionsDate] = useState(undefined);
-    const [competitionsToday, setCompetitionsToday] = useState(false);
+    const [currentDate, setCurrentDate] = useState(new Date(savegameData.year, savegameData.month, savegameData.day)); // aktualna data w grze
+    const [currentMonth, setCurrentMonth] = useState(months[currentDate.getMonth()]); // aktualny miesiac 
+    const [currentDay, setCurrentDay] = useState(days[currentDate.getDay()]); // aktualny dzien
+    const [currentYear, setCurrentYear] = useState(savegameData.year); // aktualny dzien
+    const [toNextCompetitions, setToNextCompetitions] = useState(undefined); // ile pozostalo dni do nastepnych zawodow
+    const [calendarInfo, setCalendarInfo] = useState(undefined); // kalendarz dla aktualnego sezonu
+    const [nextCompetitionsDate, setNextCompetitionsDate] = useState(undefined); // data nastepnych zawodow
+    const [competitionsToday, setCompetitionsToday] = useState(false); // bool przechowujacy informacje na temat tego czy sa dzis zawody
 
     useEffect(() => {
         const fetchCalendarInfo = async () => { 
@@ -42,11 +42,9 @@ const Header = () => {
         };
 
         fetchCalendarInfo();
-    }, [currentDate]);
-
-    useEffect(() => {
         setToNextCompetitions(nextCompetitions());
-    }, [currentDate]); 
+        checkNextCompetitions();
+    }, [currentDate, nextCompetitionsDate]);
 
     useEffect(() => {
         if (calendarInfo) {
@@ -61,14 +59,6 @@ const Header = () => {
             }
         }
     }, [calendarInfo]);
-
-    useEffect(() => {
-        checkNextCompetitions();
-    }, [nextCompetitionsDate, currentDate]);
-
-    useEffect(() => {
-        setToNextCompetitions(nextCompetitions());
-    }, [currentDate]); 
 
     async function goToNextDay() {
         const nextDay = new Date(currentDate);
@@ -129,5 +119,3 @@ const Header = () => {
         </header>
     )
 };
-
-export default Header;

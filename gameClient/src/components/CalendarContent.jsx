@@ -8,7 +8,7 @@ export default function CalendarContent() {
     const [calendarInfo, setCalendarInfo] = useState(undefined);
 
     useEffect(() => {
-        const fetchCalendarInfo = async () => { // Funkcja pomocnicza
+        const fetchCalendarInfo = async () => { 
             try {
                 const calendarInfoResponse = await axios.post('http://127.0.0.1:8080/getCalendar');
                 setCalendarInfo(calendarInfoResponse.data);
@@ -17,7 +17,7 @@ export default function CalendarContent() {
             }
         };
 
-        fetchCalendarInfo(); // Wywołanie funkcji pomocniczej
+        fetchCalendarInfo();
     }, []);
 
     let i = 0;

@@ -5,6 +5,7 @@ import StartPage from './pages/StartPage.jsx'
 import CountrySelectionPage from './pages/CountrySelectionPage.jsx'
 import Home from './pages/Home.jsx'
 import Calendar from './pages/Caledar.jsx'
+import NationalList from './pages/NationalList.jsx'
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: '/calendar',
     element: <Calendar />
+  },
+  {
+    path: "/nationalList",
+    element: <NationalList />
   }
 ])
 

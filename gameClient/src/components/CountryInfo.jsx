@@ -20,9 +20,7 @@ export default function CountryInfo({ countrySelected }) {
         setLevelOfObjects(localStorage.getItem('levelOfObjects'));
         setFinacialCondition(localStorage.getItem('finacialCondition'));
         setStatus(localStorage.getItem('status'));
-        
     })
-
 
     return (
         <div className="country-info">
@@ -47,5 +45,4 @@ export default function CountryInfo({ countrySelected }) {
             )}
         </div>
     );
-
 }
