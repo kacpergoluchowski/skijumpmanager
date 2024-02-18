@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios"; // Dodanie importu biblioteki axios
 import '../app.scss';
-import Menu from "./Menu";
 import CalendarRow from "./CalendarRow";
 
 export default function CalendarContent() {
@@ -24,7 +23,6 @@ export default function CalendarContent() {
 
     return (
         <div className="calendar-content">
-            <Menu />
             <table>
                 <tr className="headlines">
                     <td> Lp. </td>
