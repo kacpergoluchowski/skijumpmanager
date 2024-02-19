@@ -7,6 +7,7 @@ import Home from './pages/Home.jsx'
 import Calendar from './pages/Caledar.jsx'
 import NationalList from './pages/NationalList.jsx'
 import Teams from './pages/Teams.jsx'
+import Competitions from './pages/Competitions.jsx'
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/teams",
     element: <Teams />
+  },
+  {
+    path: "/competitions",
+    element: <Competitions />
   }
 ])
 

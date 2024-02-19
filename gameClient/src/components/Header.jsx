@@ -14,6 +14,7 @@ import czechiaFlag from '../assets/images/czechiaFlag.png';
 import estoniaFlag from '../assets/images/estoniaFlag.png';
 import CountryDataContext from "../context/CountryDataContext";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 const flags = [austriaFlag, germanyFlag, sloveniaFlag, norwayFlag, japanFlag, polandFlag, swissFlag, finlandFlag, italyFlag, usaFlag, estoniaFlag, czechiaFlag]; 
 
@@ -113,7 +114,7 @@ export default function Header() {
                         </div>
                     </section>
                     { !competitionsToday && <button className="continue-button" onClick={goToNextDay}> Kontynuuj </button> }
-                    { competitionsToday && <button className="continue-button"> Zawody! </button> }
+                    { competitionsToday && <Link to = '/competitions'> <button className="continue-button"> Zawody! </button> </Link> }
                 </>
             )}
         </header>

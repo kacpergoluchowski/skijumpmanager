@@ -405,3 +405,33 @@
         background-color: #2f4280;
     }
 }
+
+// ------------------------------------------------------------------------ competitions page ------------------------------------------------------------------------
+
+    .competitions-page {
+        background-color: #445BA7;
+        height: 100vh;
+
+        .competitions-header {
+            height: 157px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 30px;
+            padding-inline: 50px;
+
+            .competitions-place {
+                display: flex;
+            }
+        
+            button {
+                width: 617px;
+                height: 84px;
+                border-radius: 35px;
+                font-size: 50px;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+
