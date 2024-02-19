@@ -408,30 +408,49 @@
 
 // ------------------------------------------------------------------------ competitions page ------------------------------------------------------------------------
 
-    .competitions-page {
-        background-color: #445BA7;
-        height: 100vh;
+.competitions-page {
+    background-color: #445BA7;
+    height: 100vh;
+    overflow-y: auto;
 
-        .competitions-header {
-            height: 157px;
+    .competitions-header {
+        height: 157px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 30px;
+        padding-inline: 50px;
+
+        .competitions-place {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 30px;
-            padding-inline: 50px;
+        }
 
-            .competitions-place {
-                display: flex;
-            }
-        
-            button {
-                width: 617px;
-                height: 84px;
-                border-radius: 35px;
-                font-size: 50px;
-                border: none;
-                cursor: pointer;
-            }
+        button {
+            width: 617px;
+            height: 84px;
+            border-radius: 35px;
+            font-size: 50px;
+            border: none;
+            cursor: pointer;
         }
     }
 
+    table {
+        background-color: rgb(74, 101, 189);
+        margin-inline: auto;
+        width: 95%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+
+        td, th {
+            width: 6%;
+            font-size: 25px;
+            text-align: center;
+            border: solid white .5px;
+        }
+
+        .lp {
+            width: 5%;
+        }
+    }
+}

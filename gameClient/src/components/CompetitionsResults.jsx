@@ -1,21 +1,21 @@
+import React from "react";
 import axios from "axios";
 
 const teamAcompetitors = new Array();
 const results = new Array();
 const hillComponents = new Array();
 
-export default function GenerateCompetition(hillSize) {
-    return new Promise((resolve, reject) => {
-        fetchCompetitors();
-        setTimeout(() => {
-            reserchHill(hillSize);
-            processCompetitor();
-            results.sort((a, b) => b.firstPoints - a.firstPoints)
-            resolve(results);
-        }, 1000);
-    });
-}
+export default async function generateCompetition(hillSize) {
+    fetchCompetitors();
+    setTimeout(() => {
+        reserchHill(hillSize);
+        processCompetitor();
+    }, [1000]);
 
+    return (
+        <h1> tu beda wyniki </h1>
+    )
+}
 
 function reserchHill(hillSize) {
     let speed;
@@ -117,6 +117,7 @@ function processCompetitor() {
         i++;
     });
     results.sort((a, b) => b.finalPoints - a.finalPoints)
+    console.log(results);
 }
 
 // speed 
