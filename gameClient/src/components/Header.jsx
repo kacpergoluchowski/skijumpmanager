@@ -96,6 +96,7 @@ export default function Header() {
             else
                 setCompetitionsToday(false);
         }
+        console.log(nextCompetitionsDate);
     }
 
     return (

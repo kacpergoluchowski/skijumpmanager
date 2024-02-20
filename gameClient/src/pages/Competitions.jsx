@@ -17,7 +17,7 @@ export default function Competitions() {
     const [results, setResults] = useState(new Array());
     const [tbodyKey, setTbodyKey] = useState(0); // Dodatkowy stan jako klucz dla <tbody>
     let i = 0;
-    
+
 
     useEffect(() => {
         async function getNextCompetitions() {
@@ -66,7 +66,23 @@ export default function Competitions() {
                 const firstBreakout = checkBreakoutTechnique(teamAcompetitors[i].breakoutTechnique);
                 firstJump = generateJump(firstSpeed, firstBreakout, teamAcompetitors[i].flightTechnique, nextCompetitions.hillSize);
 
-                let firstPoints = (firstJump[0] - 90) * 1.8 + firstJump[1];
+                let beginningOfThePointRange = 0;
+                let pointsMultiply = 0;
+
+                if (nextCompetitions.hillSize < 115) {
+                    beginningOfThePointRange = 60;
+                    pointsMultiply = 2;
+                }
+                else if (nextCompetitions.hillSize < 180) {
+                    beginningOfThePointRange = 90;
+                    pointsMultiply = 1.8;
+                }
+                else {
+                    beginningOfThePointRange = 120;
+                    pointsMultiply = 1.2
+                }
+
+                let firstPoints = (firstJump[0] - beginningOfThePointRange) * pointsMultiply + firstJump[1];
                 firstPoints = firstPoints.toFixed(1);
 
                 updatedResults[i] = {
@@ -85,7 +101,6 @@ export default function Competitions() {
                 }
                 updatedResults.sort((a, b) => b.firstPoints - a.firstPoints);
                 setResults(updatedResults);
-                console.log(teamAcompetitors);
                 setTbodyKey(prevKey => prevKey + 1);
                 setTimeout(() => {
                     processCompetitor(i + 1);
@@ -104,22 +119,37 @@ export default function Competitions() {
         processCompetitor(0);
 
         function processCompetitor(i) {
-            if (i == teamAcompetitors.length)
-                setSecondRoundBtn(true);
             let secondJump;
 
             if (i <= results.length - 1) {
                 const secondSpeed = checkInvasionTechnique(competitors[results[i].id].invasionTechnique, nextCompetitions.hillSize);
                 const secondBreakout = checkBreakoutTechnique(competitors[results[i].id].breakoutTechnique);
                 secondJump = generateJump(secondSpeed, secondBreakout, competitors[results[i].id].flightTechnique, nextCompetitions.hillSize);
-            
-                let secondPoints = (secondJump[0] - 90) * 1.8 + secondJump[1];
-                secondPoints = secondPoints.toFixed(1); 
+
+                let beginningOfThePointRange = 0;
+                let pointsMultiply = 0;
+
+                if (nextCompetitions.hillSize < 115) {
+                    beginningOfThePointRange = 60;
+                    pointsMultiply = 2;
+                }
+                else if (nextCompetitions.hillSize < 180) {
+                    beginningOfThePointRange = 90;
+                    pointsMultiply = 1.8;
+                }
+                else {
+                    beginningOfThePointRange = 120;
+                    pointsMultiply = 1.2
+                }
+
+                let secondPoints = (secondJump[0] - beginningOfThePointRange) * pointsMultiply + secondJump[1];
+                secondPoints = secondPoints.toFixed(1);
                 console.log(results[i].firstPoints);
                 let finalPoints = Number(results[i].firstPoints) + Number(secondPoints);
                 finalPoints = finalPoints.toFixed(1);
-            
+
                 updatedResults[i] = {
+                    id: results[i].id,
                     name: results[i].name,
                     surname: results[i].surname,
                     firstSpeed: results[i].firstSpeed,
@@ -132,7 +162,7 @@ export default function Competitions() {
                     secondPoint: secondPoints,
                     finalPoints: finalPoints
                 };
-                
+
 
                 updatedResults.sort((a, b) => b.finalPoints - a.finalPoints);
                 setResults(updatedResults);
@@ -141,9 +171,19 @@ export default function Competitions() {
                     processCompetitor(i + 1);
                 }, [1500]);
             }
+            else {
+                setEndCompetitionBtn(true);
+            }
         }
     }
 
+    async function goToNextDay() {
+        try {
+            await axios.post('http://localhost:8080/endCompetition');
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
     return (
         <div className="competitions-page">
@@ -157,7 +197,7 @@ export default function Competitions() {
                 )}
                 {firstRoundBtn && <button className="continue-button" onClick={firstRound}> Rozpocznij 1 serię </button>}
                 {secondRoundBtn && <button className="continue-button" onClick={secondRound}> Rozpocznij 2 serię </button>}
-                {endCompetitionBtn && <Link to="/home"> <button className="continue-button"> Zakończ zawody </button> </Link>}
+                {endCompetitionBtn && <Link to="/home"> <button className="continue-button" onClick={() => goToNextDay()}> Zakończ zawody </button> </Link>}
             </header>
             <table>
                 <thead>

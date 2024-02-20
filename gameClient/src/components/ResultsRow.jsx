@@ -8,7 +8,7 @@ export default function ResultsRow({ lp, name, surname, firstSpeed, firstDistanc
         var firstDecimalPlace = parseFloat(floatValue.toFixed(1));
         var firstDecimalPlace = Math.floor(floatValue * 10) % 10;
         if(firstDecimalPlace != 5)
-            firstDistance = firstDistance + ".0"
+            firstDistance = firstDistance + ".0";
     }
     if(secondDistance) {
         var numberString = secondDistance;
@@ -16,7 +16,24 @@ export default function ResultsRow({ lp, name, surname, firstSpeed, firstDistanc
         var firstDecimalPlace = parseFloat(floatValue.toFixed(1));
         var firstDecimalPlace = Math.floor(floatValue * 10) % 10;
         if(firstDecimalPlace != 5)
-            secondDistance = secondDistance + ".0"
+            secondDistance = secondDistance + ".0";
+    }
+
+    if(firstStyle) {
+        var numberString = firstStyle;
+        var floatValue = parseFloat(numberString);
+        var firstDecimalPlace = parseFloat(floatValue.toFixed(1));
+        var firstDecimalPlace = Math.floor(floatValue * 10) % 10;
+        if(firstDecimalPlace != 5)
+            firstStyle = firstStyle + ".0";
+    }
+    if(secondStyle) {
+        var numberString = secondStyle;
+        var floatValue = parseFloat(numberString);
+        var firstDecimalPlace = parseFloat(floatValue.toFixed(1));
+        var firstDecimalPlace = Math.floor(floatValue * 10) % 10;
+        if(firstDecimalPlace != 5)
+            secondStyle = secondStyle + ".0";
     }
 
     return (

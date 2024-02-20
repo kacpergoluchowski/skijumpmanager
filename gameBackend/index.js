@@ -58,7 +58,7 @@ app.post('/createNewGame', (req, res) => {
 app.post('/getSelectedCountryInfo', async (req, res) => {
   const fileName = 'savegame.json';
   const folderPath = path.join('C:', 'Users', 'kacpe', 'OneDrive', 'Dokumenty', 'Ski jumping manager', 'savegame1', fileName);
-  
+
   try {
     const fileContent = fs.readFileSync(folderPath, 'utf-8');
     const fileContentJson = JSON.parse(fileContent);
@@ -127,16 +127,16 @@ app.post('/getCalendar', async (req, res) => {
       console.error('Błąd podczas odczytu pliku:', err);
       return;
     }
-  
+
     try {
       const worldCupCalendars = JSON.parse(data);
       res.json(worldCupCalendars.one)
-  
+
     } catch (error) {
       console.error('Błąd podczas parsowania danych JSON:', error);
     }
   });
-  
+
 })
 
 
@@ -145,14 +145,58 @@ app.post('/getCompetitors', async (req, res) => {
   const filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Github\\skijumpmanager\\gameClient\\src\\assets\\data\\competitors.json';
 
   fs.readFile(filePath, 'utf8', (err, data) => {
-    if(err)
+    if (err)
       console.error(err);
 
     try {
       const competitors = JSON.parse(data);
       res.json(competitors);
-    } catch(err) {
+    } catch (err) {
       console.error(err);
     }
   })
 })
+
+// ---------------------------------------------- pobieranie aktualnej daty ----------------------------------------------
+app.post('/getDate', async (req, res) => {
+  const filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Ski jumping manager\\savegame1\\savegame.json';
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Błąd odczytu pliku:', err);
+      return res.status(500).json({ error: 'Błąd odczytu pliku.' });
+    }
+
+    const saveData = JSON.parse(data);
+    res.json(saveData);
+  })
+})
+
+app.post('/endCompetition', async (req, res) => {
+  const filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Github\\skijumpmanager\\gameClient\\src\\assets\\data\\worldCupCalendars.json';
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Błąd podczas odczytu pliku:', err);
+      return res.status(500).json({ error: 'Błąd odczytu pliku.' });
+    }
+  
+    const calendar = JSON.parse(data);
+  
+    for (let i = 0; i < calendar.one.length; i++) {
+      if (!calendar.one[i].ended) {
+        calendar.one[i].ended = true;
+        break;
+      }
+    }
+  
+    fs.writeFile(filePath, JSON.stringify(calendar), 'utf8', (err) => {
+      if (err) {
+        console.error('Błąd podczas zapisu pliku:', err);
+        return res.status(500).json({ error: 'Błąd zapisu pliku.' });
+      }
+      console.log('Zawody zakończone!.');
+      res.status(200).json({ message: 'Plik JSON został pomyślnie zaktualizowany.' });
+    });
+  });
+});
