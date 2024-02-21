@@ -23,7 +23,7 @@ export default function ButtonsBox() {
         <div className="buttons-box">
             <Link to = '/select-country'> <button onClick={loadingSave}> <img src = {playGamePic} /> Rozpocznij grę </button> </Link>
             <button> <img src = {settingsPic} /> Ustawienia </button>
-            <button> <img src = {leavePic} />Zamknij grę </button>
+            <button onClick={() => window.close()} > <img src = {leavePic} />Zamknij grę </button>
         </div>
     )
 }

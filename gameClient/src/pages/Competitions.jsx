@@ -5,7 +5,6 @@ import checkInvasionTechnique from '../assets/utilities/checkInvasionTechnique';
 import checkBreakoutTechnique from '../assets/utilities/checkBreakoutTechnique';
 import generateJump from '../assets/utilities/generateJump';
 import ResultsRow from "../components/ResultsRow";
-
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -16,6 +15,7 @@ export default function Competitions() {
     const [endCompetitionBtn, setEndCompetitionBtn] = useState(false);
     const [results, setResults] = useState(new Array());
     const [tbodyKey, setTbodyKey] = useState(0); // Dodatkowy stan jako klucz dla <tbody>
+    const [selectedCountryInfo, setSelectedCountryInfo] = useState(undefined);
     let i = 0;
 
 
@@ -39,7 +39,14 @@ export default function Competitions() {
             }
         }
 
+        async function getCountryInfo() {
+            const response = await axios.post("http://127.0.0.1:8080/getSelectedCountryInfo");
+
+            if(response)
+                setSelectedCountryInfo(response);
+        }
         getNextCompetitions();
+        getCountryInfo();
     }, []);
 
     let teamAcompetitors = new Array();
@@ -178,8 +185,9 @@ export default function Competitions() {
     }
 
     async function goToNextDay() {
+        const sendData = [nextCompetitions, results];
         try {
-            await axios.post('http://localhost:8080/endCompetition');
+            await axios.post('http://localhost:8080/endCompetition', sendData);
         } catch (err) {
             console.log(err);
         }
@@ -222,7 +230,8 @@ export default function Competitions() {
                 <tbody key={tbodyKey}>
                     {results && results.map(result => {
                         i++;
-                        return <ResultsRow
+                        return <ResultsRow 
+                            id={result.id}
                             lp={i}
                             name={result.name}
                             surname={result.surname}

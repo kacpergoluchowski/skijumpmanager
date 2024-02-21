@@ -8,6 +8,11 @@ import Calendar from './pages/Caledar.jsx'
 import NationalList from './pages/NationalList.jsx'
 import Teams from './pages/Teams.jsx'
 import Competitions from './pages/Competitions.jsx'
+import Tournaments from './pages/Tournaments.jsx'
+import GrandPrixInfo from './pages/GrandPrixInfo.jsx'
+import WorldCupInfo from './pages/WorldCupInfo.jsx'
+import FourHillsInfo from './pages/FourHillsInfo.jsx'
+import Training from './pages/Training.jsx'
 
 const router = createBrowserRouter([
   {
@@ -37,6 +42,26 @@ const router = createBrowserRouter([
   {
     path: "/competitions",
     element: <Competitions />
+  },
+  {
+    path: "/tournaments",
+    element: <Tournaments />
+  },
+  {
+    path: "/grandPrixInfo",
+    element: <GrandPrixInfo />
+  },
+  {
+    path: "/worldCupInfo",
+    element: <WorldCupInfo />
+  },
+  {
+    path: "/fhtInfo",
+    element: <FourHillsInfo />
+  },
+  {
+    path: "/training",
+    element: <Training />
   }
 ])
 

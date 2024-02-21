@@ -454,3 +454,114 @@
         }
     }
 }
+
+.tournaments-page { 
+    background-color: #0E255C;
+
+    .tournaments-content {
+        display: flex;
+        box-sizing: border-box;
+        padding: 50px 50px;
+        gap: 20px;
+        flex-wrap: wrap;
+        width: 1570px;
+
+        .torunament-card {
+            background-color: rgba(68, 91, 167, 0.5);
+            width: 450px;
+            height: 257px;
+            cursor: pointer;
+            transition: all .3s;
+        }
+
+        .torunament-card:hover {
+            background-color: rgba(68, 91, 167, 1);
+        }
+        h1 {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 40px;
+        }
+    }
+}
+
+.grandPrixInfo-page {
+    .tournament-navbar {
+        height: 84px;
+        background-color: #3d4d85;
+
+        button {
+            height: 100%;
+            width: 330px;
+            font-size: 35px;
+            background: inherit;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}
+
+.ranking {
+    background-color: #0E255C;
+    height: 846px;
+    overflow-y: auto;
+
+    table {
+        width: 100%;
+        
+        td, th {
+            text-align: center;
+            padding: 10px;
+            font-size: 25px;
+        }
+
+        .flag {
+            text-align: center;
+            img {
+                width: 40px;
+            }
+        }
+    }
+}
+
+.rules {
+    background-color: #0E255C;
+    height: 846px;
+}
+
+.training-page {
+    display: flex;
+    overflow-y: auto;
+    
+    table {
+        background-color: #0E255C;
+        width: 100%;
+        height: 930px;
+
+        td {
+            text-align: center;
+            width: 10%;
+            font-size: 21px;
+            height: 1px;
+        }
+
+        button {
+            background-color: #455CA8;
+            width: 200px;
+            height: 40px;
+            font-size: 30px;
+            border-radius: 35px;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}
+
+.training-confirm {
+    td {
+        button {
+            font-size: 20px;
+        }
+    }
+    
+}

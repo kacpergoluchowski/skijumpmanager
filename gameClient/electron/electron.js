@@ -1,5 +1,6 @@
 const path = require('path');
 const { app, BrowserWindow } = require('electron');
+
  
 const isDev = process.env.IS_DEV == "true" ? true : false;
  
@@ -48,4 +49,9 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
   }
+});
+
+app.on('ready', () => {
+  mainWindow = new BrowserWindow({ /* opcje okna */ });
+  mainWindow.loadURL(/* URL do pliku HTML aplikacji React */);
 });

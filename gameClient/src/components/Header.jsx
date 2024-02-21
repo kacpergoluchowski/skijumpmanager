@@ -51,7 +51,7 @@ export default function Header() {
         if (calendarInfo) {
             for (let i = 0; i < calendarInfo.length; i++) {
                 if (calendarInfo[i].ended) {
-                    console.log(calendarInfo[i].place);
+                    continue;
                 } else {
                     const next = new Date(calendarInfo[i].year, calendarInfo[i].month, calendarInfo[i].day);
                     setNextCompetitionsDate(next);
@@ -96,7 +96,6 @@ export default function Header() {
             else
                 setCompetitionsToday(false);
         }
-        console.log(nextCompetitionsDate);
     }
 
     return (

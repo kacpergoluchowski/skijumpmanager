@@ -174,22 +174,23 @@ app.post('/getDate', async (req, res) => {
 
 app.post('/endCompetition', async (req, res) => {
   const filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Github\\skijumpmanager\\gameClient\\src\\assets\\data\\worldCupCalendars.json';
+  refreshCompetitorsRanking(req.body);
 
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
       console.error('Błąd podczas odczytu pliku:', err);
       return res.status(500).json({ error: 'Błąd odczytu pliku.' });
     }
-  
+
     const calendar = JSON.parse(data);
-  
+
     for (let i = 0; i < calendar.one.length; i++) {
       if (!calendar.one[i].ended) {
         calendar.one[i].ended = true;
         break;
       }
     }
-  
+
     fs.writeFile(filePath, JSON.stringify(calendar), 'utf8', (err) => {
       if (err) {
         console.error('Błąd podczas zapisu pliku:', err);
@@ -200,3 +201,117 @@ app.post('/endCompetition', async (req, res) => {
     });
   });
 });
+
+function refreshCompetitorsRanking(reqBody) {
+  const points = [100, 80, 60, 50, 45, 40, 36, 32, 29, 26, 24, 22, 20, 18, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+  const filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Github\\skijumpmanager\\gameClient\\src\\assets\\data\\competitors.json';
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Błąd podczas odczytu pliku:', err);
+      return res.status(500).json({ error: 'Błąd odczytu pliku.' });
+    }
+
+    let competitors = JSON.parse(data);
+
+    for (let i = 0; i < reqBody[1].length; i++) {
+      if (reqBody[0].gp) {
+        const competitorId = reqBody[1][i].id;
+        for (let j = 0; j < competitors.length; j++) {
+          if (competitors[j].id == competitorId) {
+            competitors[j].gpPoints += points[i];
+            break;
+          }
+
+        }
+      }
+      else if (reqBody[0].fht) {
+        const competitorId = reqBody[1][i].id;
+        for (let j = 0; j < competitors.length; j++) {
+          if (competitors[j].id == competitorId) {
+            competitors[j].fhtPoints = Number(competitors[j].fhtPoints + Number(reqBody[1][i].finalPoints))
+            competitors[j].wcPoints += points[i];
+            break;
+          }
+
+        }
+      }
+      else if (reqBody[0].rawair) {
+        const competitorId = reqBody[1][i].id;
+        for (let j = 0; j < competitors.length; j++) {
+          if (competitors[j].id == competitorId) {
+            competitors[j].rawair = Number(competitors[j].rawair + Number(reqBody[1][i].finalPoints))
+            competitors[j].wcPoints += points[i];
+            break;
+          }
+        }
+      }
+      else if (reqBody[0].worldChamp) {
+        console.log("mś")
+      }
+      else if (reqBody[0].olimpicGames) {
+        console.log('io');
+      }
+      else {
+        const competitorId = reqBody[1][i].id;
+        for (let j = 0; j < competitors.length; j++) {
+          if (competitors[j].id == competitorId) {
+            competitors[j].wcPoints += points[i];
+            break;
+          }
+
+        }
+      }
+    }
+
+    fs.writeFile(filePath, JSON.stringify(competitors), 'utf8', (err) => {
+      if (err) {
+        console.error('Błąd podczas zapisu pliku:', err);
+      }
+      console.log('punkty przydzielone!.');
+    });
+  })
+}
+
+app.post('/training', async (req, res) => {
+  const filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Github\\skijumpmanager\\gameClient\\src\\assets\\data\\competitors.json';
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Błąd podczas odczytu pliku:', err);
+      return res.status(500).json({ error: 'Błąd odczytu pliku.' });
+    }
+
+    let competitors = JSON.parse(data);
+
+    competitors.forEach(competitor => {
+      if(competitor.id == req.body[0]) {
+        competitor.invasionXp += req.body[1];
+        if(competitor.invasionXp >= 500) {
+          competitor.invasionXp -= 500;
+          if(competitor.invasionTechnique != 100)
+            competitor.invasionTechnique += 1;  
+        }
+        competitor.breakoutXp += req.body[2];
+        if(competitor.breakoutXp >= 500) {
+          competitor.breakoutXp -= 500;
+          if(competitor.breakoutTechnique != 100) 
+            competitor.breakoutTechnique += 1;
+        }
+        competitor.flightXp += req.body[3];
+        if(competitor.flightXp >= 500) {
+          competitor.flightXp -= 500;
+          if(competitor.flightTechnique != 100)
+            competitor.flightTechnique += 1;
+        }
+      }
+    });
+
+    fs.writeFile(filePath, JSON.stringify(competitors), 'utf8', (err) => {
+      if (err) {
+        console.error('Błąd podczas zapisu pliku:', err);
+      }
+      console.log('trening odbyty!')
+    });
+  })
+})

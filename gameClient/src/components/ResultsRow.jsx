@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import '../app.scss';
 
-export default function ResultsRow({ lp, name, surname, firstSpeed, firstDistance, firstStyle, firstPoints, secondSpeed, secondDistance, secondStyle, finalPoints }) {
+export default function ResultsRow({ id, lp, name, surname, firstSpeed, firstDistance, firstStyle, firstPoints, secondSpeed, secondDistance, secondStyle, finalPoints }) {
     if(firstDistance) {
         var numberString = firstDistance;
         var floatValue = parseFloat(numberString);
