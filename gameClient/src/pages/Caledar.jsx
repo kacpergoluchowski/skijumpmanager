@@ -8,7 +8,6 @@ import CalendarContent from "../components/CalendarContent";
 
 export default function Calendar() {
     const [countryInfo, setCountryInfo] = useState(undefined);
-    const [calendarInfo, setCalendarInfo] = useState(undefined);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -21,10 +20,6 @@ export default function Calendar() {
         };
         fetchData();
     }, []);
-
-    useEffect(() => {
-        console.log(calendarInfo)
-    }, [calendarInfo])
 
     return (
         <div>

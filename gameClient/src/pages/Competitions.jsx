@@ -14,7 +14,7 @@ export default function Competitions() {
     const [secondRoundBtn, setSecondRoundBtn] = useState(false);
     const [endCompetitionBtn, setEndCompetitionBtn] = useState(false);
     const [results, setResults] = useState(new Array());
-    const [tbodyKey, setTbodyKey] = useState(0); // Dodatkowy stan jako klucz dla <tbody>
+    const [tbodyKey, setTbodyKey] = useState(0);
     const [selectedCountryInfo, setSelectedCountryInfo] = useState(undefined);
     let i = 0;
 
@@ -151,7 +151,6 @@ export default function Competitions() {
 
                 let secondPoints = (secondJump[0] - beginningOfThePointRange) * pointsMultiply + secondJump[1];
                 secondPoints = secondPoints.toFixed(1);
-                console.log(results[i].firstPoints);
                 let finalPoints = Number(results[i].firstPoints) + Number(secondPoints);
                 finalPoints = finalPoints.toFixed(1);
 

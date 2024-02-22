@@ -20,7 +20,7 @@ export default function TeamsContent( {teamA, teamB, teamC} ) {
     }, []);
 
     return (
-        <div className="nationalList-content">
+        <div className="teams-content">
             {competitors && (
                 <table>
                     <thead>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios"; // Dodanie importu biblioteki axios
+import axios from "axios";
 import '../app.scss';
 import CalendarRow from "./CalendarRow";
 
@@ -7,7 +7,7 @@ export default function CalendarContent() {
     const [calendarInfo, setCalendarInfo] = useState(undefined);
 
     useEffect(() => {
-        const fetchCalendarInfo = async () => { 
+        const fetchCalendarInfo = async () => {
             try {
                 const calendarInfoResponse = await axios.post('http://127.0.0.1:8080/getCalendar');
                 setCalendarInfo(calendarInfoResponse.data);
@@ -35,19 +35,19 @@ export default function CalendarContent() {
                 {calendarInfo && (
                     calendarInfo.map(place => {
                         i++;
-                        return <CalendarRow 
-                                    lp = {i} 
-                                    place={place.place} 
-                                    hillSize={place.hillSize} 
-                                    countryIndex={place.countryId} 
-                                    day={place.day} 
-                                    month={place.month} 
-                                    year={place.year}
-                                    gp={place.gp}
-                                    fht={place.fht}
-                                    worldChamp={place.worldChamp}
-                                    rawair={place.rawair}
-                                />
+                        return <CalendarRow
+                            lp={i}
+                            place={place.place}
+                            hillSize={place.hillSize}
+                            countryIndex={place.countryId}
+                            day={place.day}
+                            month={place.month}
+                            year={place.year}
+                            gp={place.gp}
+                            fht={place.fht}
+                            worldChamp={place.worldChamp}
+                            rawair={place.rawair}
+                        />
                     })
                 )}
             </table>

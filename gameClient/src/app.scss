@@ -275,7 +275,33 @@
                     width: 538px;
                     height: 393px;
                     background-color: rgba(68, 91, 167, 0.5);
-                }
+                    padding: 20px;
+                    box-sizing: border-box;
+                    font-size: 25px;
+
+                    table {
+                        height: 250px;
+                        margin-top: 20px;
+
+                        td {
+                            width: 500px;
+                        }
+
+                        .competitor-age {
+                            text-align: end;
+                        }
+                    }
+
+                    .competitions-row {
+                        img {
+                            width: 35px;
+                        }
+                    }
+
+                    .competitions-date-row {
+                        text-align: end;
+                    }
+                 }
             }
 
             .home-ranking {
@@ -386,25 +412,51 @@
     }
 }
 
-// ------------------------------------------------------------------------ national list page ------------------------------------------------------------------------
+// ------------------------------------------------------------------------ teams page ------------------------------------------------------------------------
 
-.teams-navbar {
-    background-color: #3d4d85;
-    height: 68px;
 
-    button {
-        height: 100%;
-        width: 260px;
-        font-size: 30px;
-        background-color: inherit;
-        border: none;
-        cursor: pointer;
+.teams-page {
+    display: flex;
+    background-color: #0E255C;
+
+    .teams-navbar {
+        background-color: #3d4d85;
+        height: 68px;
+    
+        button {
+            height: 100%;
+            width: 260px;
+            font-size: 30px;
+            background-color: inherit;
+            border: none;
+            cursor: pointer;
+        }
+    
+        button:hover {
+            background-color: #2f4280;
+        }
     }
 
-    button:hover {
-        background-color: #2f4280;
+    .teams-content {
+        height: 862px;
+
+        table {
+            width: 100%;
+
+            th {
+                font-size: 30px;
+            }
+            
+            td {
+                text-align: center;
+                font-size: 25px;
+                padding-block: 20px;
+                width: 17%;
+            }
+        }
     }
 }
+
 
 // ------------------------------------------------------------------------ competitions page ------------------------------------------------------------------------
 
@@ -457,6 +509,10 @@
 
 .tournaments-page { 
     background-color: #0E255C;
+    
+    .divek {
+        display: flex;
+    }
 
     .tournaments-content {
         display: flex;
@@ -565,3 +621,4 @@
     }
     
 }
+

@@ -172,13 +172,14 @@ app.post('/getDate', async (req, res) => {
   })
 })
 
+// ---------------------------------------------- zakończenie aktualnych zawodów ----------------------------------------------
+
 app.post('/endCompetition', async (req, res) => {
   const filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Github\\skijumpmanager\\gameClient\\src\\assets\\data\\worldCupCalendars.json';
   refreshCompetitorsRanking(req.body);
 
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
-      console.error('Błąd podczas odczytu pliku:', err);
       return res.status(500).json({ error: 'Błąd odczytu pliku.' });
     }
 
@@ -193,14 +194,14 @@ app.post('/endCompetition', async (req, res) => {
 
     fs.writeFile(filePath, JSON.stringify(calendar), 'utf8', (err) => {
       if (err) {
-        console.error('Błąd podczas zapisu pliku:', err);
         return res.status(500).json({ error: 'Błąd zapisu pliku.' });
       }
-      console.log('Zawody zakończone!.');
       res.status(200).json({ message: 'Plik JSON został pomyślnie zaktualizowany.' });
     });
   });
 });
+
+// ---------------------------------------------- przydzielenie punktów za zawody ----------------------------------------------
 
 function refreshCompetitorsRanking(reqBody) {
   const points = [100, 80, 60, 50, 45, 40, 36, 32, 29, 26, 24, 22, 20, 18, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
@@ -208,7 +209,6 @@ function refreshCompetitorsRanking(reqBody) {
 
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
-      console.error('Błąd podczas odczytu pliku:', err);
       return res.status(500).json({ error: 'Błąd odczytu pliku.' });
     }
 
@@ -268,17 +268,17 @@ function refreshCompetitorsRanking(reqBody) {
       if (err) {
         console.error('Błąd podczas zapisu pliku:', err);
       }
-      console.log('punkty przydzielone!.');
     });
   })
 }
+
+// ---------------------------------------------- trening zawodników ----------------------------------------------
 
 app.post('/training', async (req, res) => {
   const filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Github\\skijumpmanager\\gameClient\\src\\assets\\data\\competitors.json';
 
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
-      console.error('Błąd podczas odczytu pliku:', err);
       return res.status(500).json({ error: 'Błąd odczytu pliku.' });
     }
 
@@ -311,7 +311,6 @@ app.post('/training', async (req, res) => {
       if (err) {
         console.error('Błąd podczas zapisu pliku:', err);
       }
-      console.log('trening odbyty!')
     });
   })
 })

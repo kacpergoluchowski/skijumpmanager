@@ -19,14 +19,7 @@ export default function NationalListContent() {
         };
         fetchData();
     }, []);
-
-    useEffect(() => {
-        if (competitors)
-            competitors.forEach(competitor => {
-                if (competitor.countryId == countryInfo.id)
-                    console.log(competitor);
-            });
-    }, [competitors])
+    
     return (
         <div className="nationalList-content">
             {competitors && (

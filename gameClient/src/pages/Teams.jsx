@@ -29,7 +29,7 @@ export default function Teams() {
         <div>
             {countryInfo && (
                 <CountryDataContext.Provider value={countryInfo}>
-                    <div className="nationalList-page">
+                    <div className="teams-page">
                         <Navbar />
                         <main>
                             <Header />

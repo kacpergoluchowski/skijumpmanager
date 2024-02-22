@@ -1,3 +1,5 @@
+// PRAWDOPODOBNIE DO USUNIĘCIA ---------------
+
 import React from "react";
 import axios from "axios";
 
