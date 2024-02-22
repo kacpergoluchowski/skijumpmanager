@@ -39,6 +39,7 @@ export default function NationalListContent() {
                             competitors.map(competitor => {
                                 if (competitor.countryId == countryInfo.id)
                                     return <CompetitorRow
+                                        id={competitor.id}
                                         name={competitor.name}
                                         surname={competitor.surname}
                                         age={competitor.age}

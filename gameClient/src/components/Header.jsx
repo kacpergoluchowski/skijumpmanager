@@ -64,6 +64,9 @@ export default function Header() {
     async function goToNextDay() {
         const nextDay = new Date(currentDate);
         nextDay.setDate(nextDay.getDate() + 1);
+
+        if(currentDate.getMonth() != nextDay.getMonth())
+            console.log('następny miesiąc!');
     
         const currentDayOfWeek = days[nextDay.getDay()];
         const currentMonth = months[nextDay.getMonth()];

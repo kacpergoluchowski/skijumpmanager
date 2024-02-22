@@ -12,7 +12,7 @@
             "rawair": false,
             "worldChamp": false,
             "olimpicGames": false,
-            "ended": true
+            "ended": false
         },
         {
             "countryId": 8,
@@ -26,7 +26,7 @@
             "rawair": false,
             "worldChamp": false,
             "olimpicGames": false,
-            "ended": true
+            "ended": false
         },
         {
             "countryId": 5,
@@ -40,7 +40,7 @@
             "rawair": false,
             "worldChamp": false,
             "olimpicGames": false,
-            "ended": true
+            "ended": false
         },
         {
             "countryId": 5,
@@ -54,7 +54,7 @@
             "rawair": false,
             "worldChamp": false,
             "olimpicGames": false,
-            "ended": true
+            "ended": false
         },
         {
             "countryId": 4,
@@ -63,12 +63,12 @@
             "day": 14,
             "month": 8,
             "year": 2024,
-            "gp": false,
-            "fht": true,
+            "gp": true,
+            "fht": false,
             "rawair": false,
             "worldChamp": false,
             "olimpicGames": false,
-            "ended": true
+            "ended": false
         },
         {
             "countryId": 4,
@@ -82,7 +82,7 @@
             "rawair": false,
             "worldChamp": false,
             "olimpicGames": false,
-            "ended": true
+            "ended": false
         },
         {
             "countryId": 0,
@@ -96,7 +96,7 @@
             "rawair": false,
             "worldChamp": false,
             "olimpicGames": false,
-            "ended": true
+            "ended": false
         },
         {
             "countryId": 0,
@@ -110,7 +110,7 @@
             "rawair": false,
             "worldChamp": false,
             "olimpicGames": false,
-            "ended": true
+            "ended": false
         },
         {
             "countryId": 1,
@@ -124,7 +124,7 @@
             "rawair": false,
             "worldChamp": false,
             "olimpicGames": false,
-            "ended": true
+            "ended": false
         },
         {
             "countryId": 1,
@@ -138,7 +138,7 @@
             "rawair": false,
             "worldChamp": false,
             "olimpicGames": false,
-            "ended": true
+            "ended": false
         },
         {
             "countryId": 3,
@@ -152,7 +152,7 @@
             "rawair": false,
             "worldChamp": false,
             "olimpicGames": false,
-            "ended": true
+            "ended": false
         },
         {
             "countryId": 3,
@@ -166,7 +166,7 @@
             "rawair": false,
             "worldChamp": false,
             "olimpicGames": false,
-            "ended": true
+            "ended": false
         },
         {
             "countryId": 7,

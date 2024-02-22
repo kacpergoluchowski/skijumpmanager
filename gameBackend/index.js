@@ -285,23 +285,23 @@ app.post('/training', async (req, res) => {
     let competitors = JSON.parse(data);
 
     competitors.forEach(competitor => {
-      if(competitor.id == req.body[0]) {
+      if (competitor.id == req.body[0]) {
         competitor.invasionXp += req.body[1];
-        if(competitor.invasionXp >= 500) {
+        if (competitor.invasionXp >= 500) {
           competitor.invasionXp -= 500;
-          if(competitor.invasionTechnique != 100)
-            competitor.invasionTechnique += 1;  
+          if (competitor.invasionTechnique != 100)
+            competitor.invasionTechnique += 1;
         }
         competitor.breakoutXp += req.body[2];
-        if(competitor.breakoutXp >= 500) {
+        if (competitor.breakoutXp >= 500) {
           competitor.breakoutXp -= 500;
-          if(competitor.breakoutTechnique != 100) 
+          if (competitor.breakoutTechnique != 100)
             competitor.breakoutTechnique += 1;
         }
         competitor.flightXp += req.body[3];
-        if(competitor.flightXp >= 500) {
+        if (competitor.flightXp >= 500) {
           competitor.flightXp -= 500;
-          if(competitor.flightTechnique != 100)
+          if (competitor.flightTechnique != 100)
             competitor.flightTechnique += 1;
         }
       }
@@ -314,3 +314,64 @@ app.post('/training', async (req, res) => {
     });
   })
 })
+
+app.post('/switchCompetitors', async (req, res) => {
+  const filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Github\\skijumpmanager\\gameClient\\src\\assets\\data\\competitors.json';
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      return res.status(500).json({ error: 'Błąd odczytu pliku.' });
+    }
+
+    let competitors = JSON.parse(data);
+
+    competitors.forEach(competitor => {
+      if (competitor.id == req.body[0]) {
+        switch (req.body[1]) {
+          case 'teamA':
+            competitor.teamA = true;
+            competitor.teamB = false;
+            competitor.teamC = false;
+            competitor.teamD = false;
+            break;
+          case 'teamB':
+            competitor.teamA = false;
+            competitor.teamB = true;
+            competitor.teamC = false;
+            competitor.teamD = false;
+            break;
+          case 'teamC':
+            competitor.teamA = false;
+            competitor.teamB = false;
+            competitor.teamC = true;
+            competitor.teamD = false;
+            break;
+          case 'teamD':
+            competitor.teamA = false;
+            competitor.teamB = false;
+            competitor.teamC = false;
+            competitor.teamD = true;
+            break;
+          case 'none':
+            competitor.teamA = false;
+            competitor.teamB = false;
+            competitor.teamC = false;
+            competitor.teamD = false;
+            break;
+          default:
+            break;
+        }
+      }
+    });
+
+    fs.writeFile(filePath, JSON.stringify(competitors), 'utf8', (err) => {
+      if (err) {
+        console.error('Błąd podczas zapisu pliku:', err);
+        return res.status(500).json({ error: 'Błąd zapisu pliku.' });
+      }
+      
+      console.log('Plik został zapisany pomyślnie.');
+      res.status(200).json({ message: 'Pomyślnie zaktualizowano konkurentów.' });
+    });
+  });
+});

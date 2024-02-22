@@ -309,6 +309,26 @@
                 height: 855px;
                 width: 360px;
                 margin-left: 30px;
+                overflow-y: auto;
+                box-sizing: border-box;
+                padding: 20px;
+
+                table {
+                    width: 100%;
+                    margin-top: 10px;
+                }
+
+                td {
+                    font-size: 25px;
+                    padding-block: 5px;
+
+                    img {
+                        width: 30px;
+                        margin-right: 3px;
+                    }
+                }
+                
+                
             }
         }
     }
@@ -435,6 +455,11 @@
         button:hover {
             background-color: #2f4280;
         }
+    }
+
+    .competitor:hover {
+        background-color: #0b193b;
+        cursor: pointer;
     }
 
     .teams-content {

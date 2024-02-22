@@ -4,13 +4,14 @@ import CadreBox from "./CadreBox";
 import CalendarBox from "./CalendarBox";
 import FinacialBox from "./FinacialBox";
 import RankingBox from "./RankingBox";
+import SecondCadreBox from "./SecondCadreBox";
 
 export default function HomeContent() {
     return (
         <div className="home-content">
             <div className="home-content-wrapper">
                 <CadreBox />
-                <CadreBox />
+                <SecondCadreBox />
                 <CalendarBox />
                 <FinacialBox />
             </div>

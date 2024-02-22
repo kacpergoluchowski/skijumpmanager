@@ -19,6 +19,7 @@ export default function generateJump(speed, breakout, flight, hillSize) {
     else if (hillSize < 131) {
         speed = 89;
         distanceIntervalGenerated = 4;
+        bonus = distanceIntervalGenerated - 6;
         pointsMultiplier = 1.8
     }
     else if (hillSize < 151) {
@@ -30,11 +31,13 @@ export default function generateJump(speed, breakout, flight, hillSize) {
     else if (hillSize < 181) {
         speed = 97;
         distanceIntervalGenerated = 8;
+        bonus = distanceIntervalGenerated - 9;
         pointsMultiplier = 1.2
     }
     else if (hillSize < 211) {
         speed = 100;
         distanceIntervalGenerated = 10;
+        bonus = distanceIntervalGenerated - 12;
         pointsMultiplier = 1.2
     }
     else if (hillSize < 241) {

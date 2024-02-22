@@ -51,6 +51,7 @@ function TeamA({competitors}) {
                 competitors.map(competitor => {
                     if (competitor.countryId == countryInfo.id && competitor.teamA)
                         return <CompetitorRow
+                            id={competitor.id}
                             name={competitor.name}
                             surname={competitor.surname}
                             age={competitor.age}
@@ -72,6 +73,7 @@ function TeamB({competitors}) {
                 competitors.map(competitor => {
                     if (competitor.countryId == countryInfo.id && competitor.teamB)
                         return <CompetitorRow
+                            id={competitor.id}
                             name={competitor.name}
                             surname={competitor.surname}
                             age={competitor.age}
@@ -93,6 +95,7 @@ function TeamC({competitors}) {
                 competitors.map(competitor => {
                     if (competitor.countryId == countryInfo.id && competitor.teamC)
                         return <CompetitorRow
+                            id={competitor.id}
                             name={competitor.name}
                             surname={competitor.surname}
                             age={competitor.age}
