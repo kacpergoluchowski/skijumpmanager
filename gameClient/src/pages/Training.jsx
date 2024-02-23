@@ -46,7 +46,7 @@ export default function Training() {
                                 </thead>
                                 <tbody>
                                     {competitors.map(competitor => {
-                                        if (competitor.countryId == countryInfo.id)
+                                        if (competitor.countryId == countryInfo.id && competitor.teamA)
                                             return <CompetitorTrainStats key={competitor.id} {...competitor}/>;
                                         return null;
                                     })}
@@ -147,6 +147,7 @@ function TrainingConfirmation({ hideConfirm, id, name, surname,invasionTechnique
             console.log(experience);
         }
         await axios.post('http://127.0.0.1:8080/training', experience);
+        location.reload();
     }
 
     function handleGeneralTraining() {

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from 'axios';
-
 import '../app.scss';
 import coachs from '../assets/data/coachs.json';
 
 export default function StaffContent({ staff, market }) {
+
     return (
         <div className="staff-content">
             {staff && <Staff />}
@@ -43,7 +43,7 @@ function Staff() {
                     <td> Trener Kadry B:  </td>
                     <td> {coachB && coachB.name && coachB.surname && `${coachB.name} ${coachB.surname}`} </td>
                     <td> {coachB && coachB.salary && `${coachB.salary} pln`} </td>
-                    <td> <button> Zwolnij </button> </td>
+                    <td> {coachB && <button> Zwolnij </button> }</td>
                 </tr>
                 <tr>
                     <td> Asystent trenera Kadry B: </td>
@@ -53,7 +53,7 @@ function Staff() {
                     <td> Trener Kadry C: </td>
                     <td> {coachC && coachC.name && coachC.surname && `${coachC.name} ${coachC.surname}`} </td>
                     <td> {coachC && coachC.salary && `${coachC.salary} pln`} </td>
-                    <td> <button> Zwolnij </button> </td>
+                    <td> {coachC && <button> Zwolnij </button> } </td>
                 </tr>
                 <tr>
                     <td> Asystent trenera Kadry C: </td>
