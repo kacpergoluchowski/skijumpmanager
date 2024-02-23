@@ -16,7 +16,7 @@ import CountryDataContext from "../context/CountryDataContext";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
-const flags = [austriaFlag, germanyFlag, sloveniaFlag, norwayFlag, japanFlag, polandFlag, swissFlag, finlandFlag, italyFlag, usaFlag, estoniaFlag, czechiaFlag]; 
+const flags = [austriaFlag, germanyFlag, sloveniaFlag, norwayFlag, japanFlag, polandFlag, swissFlag, finlandFlag, italyFlag, usaFlag, estoniaFlag, czechiaFlag];
 
 const days = ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela'];
 const months = ["sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paz", "lis", "gru"];
@@ -33,7 +33,7 @@ export default function Header() {
     const [competitionsToday, setCompetitionsToday] = useState(false); // bool przechowujacy informacje na temat tego czy sa dzis zawody
 
     useEffect(() => {
-        const fetchCalendarInfo = async () => { 
+        const fetchCalendarInfo = async () => {
             try {
                 const calendarInfoResponse = await axios.post('http://127.0.0.1:8080/getCalendar');
                 setCalendarInfo(calendarInfoResponse.data);
@@ -65,20 +65,21 @@ export default function Header() {
         const nextDay = new Date(currentDate);
         nextDay.setDate(nextDay.getDate() + 1);
 
-        if(currentDate.getMonth() != nextDay.getMonth())
-            console.log('następny miesiąc!');
-    
+        const sendData = [savegameData.id];
+        if (currentDate.getMonth() != nextDay.getMonth())
+            sendData.push('new month');
+
         const currentDayOfWeek = days[nextDay.getDay()];
         const currentMonth = months[nextDay.getMonth()];
         const currentYear = nextDay.getFullYear();
-    
+
         setCurrentDate(nextDay);
         setCurrentDay(currentDayOfWeek);
         setCurrentMonth(currentMonth);
         setCurrentYear(currentYear);
-        
-        const date = [nextDay.getDate(), nextDay.getMonth(), currentYear];
-    
+
+        const date = [nextDay.getDate(), nextDay.getMonth(), currentYear, sendData];
+
         try {
             await axios.post('http://localhost:8080/refreshDate', date);
         } catch (error) {
@@ -89,12 +90,12 @@ export default function Header() {
     function nextCompetitions() {
         const competitionsDate = nextCompetitionsDate;
         const diff = competitionsDate - currentDate;
-        return diff > 0 ? Math.ceil(diff / (1000 * 3600 * 24)) : 0; 
+        return diff > 0 ? Math.ceil(diff / (1000 * 3600 * 24)) : 0;
     }
 
     function checkNextCompetitions() {
-        if(currentDate && nextCompetitionsDate) {
-            if(currentDate.getTime() == nextCompetitionsDate.getTime())
+        if (currentDate && nextCompetitionsDate) {
+            if (currentDate.getTime() == nextCompetitionsDate.getTime())
                 setCompetitionsToday(true);
             else
                 setCompetitionsToday(false);
@@ -116,8 +117,8 @@ export default function Header() {
                             <h3> {currentDate.getDate()} {currentMonth} {currentYear} </h3>
                         </div>
                     </section>
-                    { !competitionsToday && <button className="continue-button" onClick={goToNextDay}> Kontynuuj </button> }
-                    { competitionsToday && <Link to = '/competitions'> <button className="continue-button"> Zawody! </button> </Link> }
+                    {!competitionsToday && <button className="continue-button" onClick={goToNextDay}> Kontynuuj </button>}
+                    {competitionsToday && <Link to='/competitions'> <button className="continue-button"> Zawody! </button> </Link>}
                 </>
             )}
         </header>

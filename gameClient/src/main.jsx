@@ -13,6 +13,7 @@ import GrandPrixInfo from './pages/GrandPrixInfo.jsx'
 import WorldCupInfo from './pages/WorldCupInfo.jsx'
 import FourHillsInfo from './pages/FourHillsInfo.jsx'
 import Training from './pages/Training.jsx'
+import Staff from './pages/Staff.jsx'
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
   {
     path: "/training",
     element: <Training />
+  },
+  {
+    path: "/staff",
+    element: <Staff />
   }
 ])
 

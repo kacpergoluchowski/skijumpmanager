@@ -647,3 +647,58 @@
     
 }
 
+.staff-page {
+    display: flex;
+
+    .staff-navbar {
+        background-color: #3d4d85;
+        height: 68px;
+
+        button {
+            height: inherit;
+            background-color: inherit;
+            border: none;
+            width: 260px;
+            font-size: 30px;   
+            cursor: pointer;
+        }
+    }
+
+    .staff-content {
+        background-color: #0C2359;
+        height: 862px;
+    }
+
+    .coach-market {
+        width: 100%;
+        margin-top: 20px;
+        
+        th { 
+            width: 20%;
+            text-align: center;
+            font-size: 35px;
+            padding-bottom:  20px;
+        }
+
+        td {
+            width: 20%;
+            text-align: center;
+            font-size: 25px;
+            padding: 5px;
+        }
+
+        button {
+            background-color: #455CA8;
+            width: 200px;
+            height: 40px;
+            font-size: 30px;
+            border-radius: 35px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hire-coach-btn {
+            font-size: 20px;
+        }
+    }
+}

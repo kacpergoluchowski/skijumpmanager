@@ -82,7 +82,9 @@ app.post('/loadingSave', async (req, res) => {
 
 // ---------------------------------------------- aktualizowanie daty ----------------------------------------------
 app.post('/refreshDate', async (req, res) => {
-  const filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Ski jumping manager\\savegame1\\savegame.json';
+  let filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Ski jumping manager\\savegame1\\savegame.json';
+  if (req.body[3][1])
+    skillDecline(req.body[3][0]);
 
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
@@ -95,11 +97,6 @@ app.post('/refreshDate', async (req, res) => {
       jsonObject = JSON.parse(data);
     } catch (error) {
       console.error('Błąd parsowania pliku JSON:', error);
-      return res.status(500).json({ error: 'Błąd parsowania pliku JSON.' });
-    }
-
-    if (!Array.isArray(req.body) || req.body.length !== 3) {
-      return res.status(400).json({ error: 'Nieprawidłowe dane w żądaniu.' });
     }
 
     jsonObject.day = req.body[0];
@@ -109,9 +106,48 @@ app.post('/refreshDate', async (req, res) => {
     const jsonString = JSON.stringify(jsonObject, null, 2);
 
     fs.writeFile(filePath, jsonString, 'utf8', (err) => {
+      if (!err)
+        console.log('Plik JSON został pomyślnie zaktualizowany.');
+    });
+  });
+
+  // ----- spadek zmeeczenia ------
+  const competitorsPath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Github\\skijumpmanager\\gameClient\\src\\assets\\data\\competitors.json';
+
+  fs.readFile(competitorsPath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Błąd odczytu pliku:', err);
+      return res.status(500).json({ error: 'Błąd odczytu pliku.' });
+    }
+
+    let competitors;
+    try {
+      competitors = JSON.parse(data);
+      competitors.forEach(competitor => {
+        if (competitor.tiredness > 25)
+          competitor.tiredness -= 25;
+        else
+          competitor.tiredness -= competitor.tiredness;
+      });
+    } catch (error) {
+      console.error('Błąd parsowania pliku JSON:', error);
+      return res.status(500).json({ error: 'Błąd parsowania pliku JSON.' });
+    }
+
+    if (!Array.isArray(req.body) || req.body.length !== 3) {
+      return res.status(400).json({ error: 'Nieprawidłowe dane w żądaniu.' });
+    }
+
+
+
+    const jsonString = JSON.stringify(competitors, null, 2);
+
+    fs.writeFile(competitorsPath, jsonString, 'utf8', (err) => {
       if (err) {
         return res.status(500).json({ error: 'Błąd zapisu pliku.' });
       }
+      else
+        console.log('zmeczenie spadlo!');
       console.log('Plik JSON został pomyślnie zaktualizowany.');
       res.status(200).json({ message: 'Plik JSON został pomyślnie zaktualizowany.' });
     });
@@ -272,6 +308,36 @@ function refreshCompetitorsRanking(reqBody) {
   })
 }
 
+function skillDecline(id) {
+  const filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Github\\skijumpmanager\\gameClient\\src\\assets\\data\\competitors.json';
+  console.log(id);
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+    }
+
+    const competitors = JSON.parse(data);
+
+    for (let i = 0; i < competitors.length; i++) {
+      if (competitors[i].countryId == id) {
+        competitors[i].invasionTechnique -= 5;
+        competitors[i].breakoutTechnique -= 5;
+        competitors[i].flightTechnique -= 5;
+      }
+    }
+
+    fs.writeFile(filePath, JSON.stringify(competitors), 'utf8', (err) => {
+      if (err) {
+        console.error(err);
+      }
+      else {
+        console.log('umiejetnosci odjete');
+      }
+    });
+  });
+}
+
 // ---------------------------------------------- trening zawodników ----------------------------------------------
 
 app.post('/training', async (req, res) => {
@@ -286,6 +352,7 @@ app.post('/training', async (req, res) => {
 
     competitors.forEach(competitor => {
       if (competitor.id == req.body[0]) {
+        competitor.tiredness += 25;
         competitor.invasionXp += req.body[1];
         if (competitor.invasionXp >= 500) {
           competitor.invasionXp -= 500;
@@ -369,9 +436,44 @@ app.post('/switchCompetitors', async (req, res) => {
         console.error('Błąd podczas zapisu pliku:', err);
         return res.status(500).json({ error: 'Błąd zapisu pliku.' });
       }
-      
+
       console.log('Plik został zapisany pomyślnie.');
       res.status(200).json({ message: 'Pomyślnie zaktualizowano konkurentów.' });
     });
   });
+});
+
+
+app.post('/hireCoach', async (req, res) => {
+  const filePath = 'C:\\Users\\kacpe\\OneDrive\\Dokumenty\\Github\\skijumpmanager\\gameClient\\src\\assets\\data\\coachs.json';
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      return res.status(500).json({ error: 'Błąd odczytu pliku.' });
+    }
+
+    let coachs = JSON.parse(data);
+
+    for(let i = 0; i < coachs.length; i++) {
+      console.log(req.body.id);
+      if(coachs[i].id == req.body.id) {
+        if(req.body.cadre == 'coachB')
+          coachs[i].teamB = true;
+        else if(req.body.cadre == 'coachC')
+          coachs[i].teamC = true;
+      }
+    }
+
+    fs.writeFile(filePath, JSON.stringify(coachs), 'utf8', (err) => {
+      if (err) {
+        console.error('Błąd podczas zapisu pliku:', err);
+        return res.status(500).json({ error: 'Błąd zapisu pliku.' });
+      }
+  
+      console.log('Plik został zapisany pomyślnie.');
+      res.status(200).json({ message: 'Pomyślnie zaktualizowano konkurentów.' });
+    });
+  });
+
+  
 });

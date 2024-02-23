@@ -19,7 +19,7 @@ export default function Navbar() {
             <Link to = '/home'> <button> <img src = {homePagePic} /> Home </button> </Link>
             <Link to = '/teams'> <button> <img src = {skiJumpersCadrePic} /> Kadra </button> </Link>
             <Link to = '/nationalList'> <button> <img src = {nationalListPic} /> Lista krajowa </button> </Link>
-            <button> <img src = {staffPic} /> Sztab </button>
+            <Link to = '/staff'> <button> <img src = {staffPic} /> Sztab </button> </Link>
             <Link to = '/tournaments'> <button> <img src = {competitionPic} /> Zawody </button> </Link>
             <Link to = '/calendar'> <button> <img src = {calendarPic} /> Kalendarz </button> </Link>
             <Link to = '/training'> <button> <img src = {trainingPic} /> Trening </button> </Link> 
